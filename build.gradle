@@ -46,18 +46,48 @@ subprojects {
 	    classifier = 'sources'
 	    from sourceSets.main.allSource
 	}
-    uploadArchives {
-	    repositories {
-	       flatDir {
-	           dirs file('release')
-	       }
-    	}
-
+   artifacts {  
+    archives jar  
+    archives javadocJar  
+    archives sourcesJar  
+   }
+   
+	uploadArchives {
+		repositories{
+			mavenDeployer {
+		        pom.groupId = project.group
+		        pom.version = project.version
+		        pom.artifactId = project.name
+				pom.project{
+					name project.name
+					packaging 'jar'
+					description ''
+					licenses {
+						license {
+							name 'The Apache Software License, Version 2.0'
+								url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+								distribution ''
+						}
+					}
+					developers{
+						developer {
+							id 'cj'
+							name 'Carocean Jofers'
+						}
+					}
+				}
+			 
+		        repository(url: "http://localhost:65000/nexus/content/repositories/netos"){
+					authentication(userName:"admin",password:"admin123")
+		        }
+			}
+		}
 	}
+	
 }
 task release(type: Copy) {
  		doLast {
-			println 'be 环境发布完毕!'
+			println 'mic 环境发布完毕!'
 		}
 }
 release.dependsOn ":cj.studio.mic.program:release"
