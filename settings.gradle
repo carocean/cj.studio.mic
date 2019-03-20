@@ -1,0 +1,3 @@
+include "cj.studio.mic.plugin"
+include "cj.studio.mic.main"
+include "cj.studio.mic.program"

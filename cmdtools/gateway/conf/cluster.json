@@ -1,0 +1,23 @@
+{
+	"valids": [
+		{
+			"name": "mic",
+			"uris": [
+				"app://mic:way"
+			],
+			"props": {
+				
+			}
+		},
+		{
+			"name": "/backend/uc/",
+			"uris": [
+				"http://localhost:9090"
+			],
+			"props": {
+				
+			}
+		}
+	],
+	"invalids": []
+}
