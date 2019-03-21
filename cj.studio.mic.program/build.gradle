@@ -19,16 +19,38 @@ sourceSets {
 
 dependencies {
 	compile fileTree('../global/runtime')
-	compile fileTree('../global/cjtools')
-	compile fileTree('../global/cjmodules')
 	compile fileTree('src/cj/refembeds')
 	compile fileTree('src/cj/references')
+	compile group: 'cj.studio.gateway2', name: 'cj.studio.gateway.stub', version: ref_cj_studio_gateway_stub
+	compile group: 'cj.studio.backend.uc', name: 'cj.studio.backend.uc.stub', version: ref_cj_studio_backend_uc_stub
+	
+}
+task copyRefembeds(type: Copy) {
+    into 'src/cj/refembeds'
+    from(configurations.all) {
+        include 'cj.studio.gateway.stub-*.jar'
+        //下面在执行uploadArchives方法时只执行删除缺不拷贝，因此注释掉
+       // delete fileTree("src/cj/refembeds").matching {
+        //	include "cj.studio.gateway.stub-*.jar"
+    	//}
+    }
+}
+task copyReferences(type: Copy) {
+    into 'src/cj/references'
+    from(configurations.all) {
+        include 'cj.studio.backend.uc.stub-*.jar'
+        //下面在执行uploadArchives方法时只执行删除缺不拷贝，因此注释掉
+       // delete fileTree("src/cj/references").matching {
+        //	include "cj.studio.backend.uc.stub-*.jar"
+    	//}
+    }
 }
 task releaseToHost(type: Copy) {
- dependsOn "build"
+ dependsOn "build",'copyRefembeds','copyReferences'
  from 'build/libs/'
 into '../cmdtools/gateway/assemblies/mic'
  include '**/*.jar'
+ exclude '**/*-javadoc.jar','**/*-sources.jar'
  }
  
  task release(type:Copy){

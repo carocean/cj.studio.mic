@@ -3,7 +3,7 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'eclipse'
 	apply plugin: 'maven'
-	version = '1.0'
+	version = engineer_version
     sourceSets { 
 	 main { 
 	 	java{
@@ -19,11 +19,17 @@ subprojects {
     repositories {
        jcenter()
        mavenCentral()
-       flatDir(dirs: file("../global/lib")) 
+       maven{
+       	url engineer_nexus
+       }
     }
 
     dependencies {
         testCompile 'junit:junit:4.8.2'
+        compile group: 'cj.studio.ecm', name: 'cj.ultimate', version: ref_cj_ultimate_version
+    	compile group: 'cj.studio.ecm', name: 'cj.studio.ecm.corelib', version: ref_cj_studio_ecm_corelib_version
+    	compile group: 'cj.studio.gateway2', name: 'cj.studio.ecm.net', version: ref_cj_studio_ecm_net_version
+    	compile group: 'cj.studio.gateway2', name: 'cj.studio.gateway.socket', version: ref_cj_gateway_socket_version
     }
     
     jar {
