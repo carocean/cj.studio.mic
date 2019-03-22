@@ -13,7 +13,7 @@
 	 		name:"test..."
 	},
  	services:{
- 		rest:'$.rest'
+ 		nodeTree:'micplugin.ntService'
  	}
  ]>
  <![desc:{
@@ -31,20 +31,21 @@ var CircuitException=Java.type('cj.studio.ecm.net.CircuitException');
 
 exports.flow = function(f,c,ctx) {
 	var doc = ctx.html("/index.html", "utf-8");
-//	var creator=f.session().attribute('uc.principals');
-//	if('true'==f.parameter('onlyPrintPt')){
-//		printProjectTree(f,doc,ptStub,creator,rcStub);
-//		var tree=doc.select('.pr-tree').first();
-//		c.content().writeBytes(tree.html().getBytes());
-//		return;
-//	}
-//	printWelcome(doc,f);
-//	printProjectTree(f,doc,ptStub,creator,rcStub);
+	var creator=f.session().attribute('uc.principals');
+	var nodeTree=imports.head.services.nodeTree;
+	if('true'==f.parameter('onlyPrintPt')){
+		printProjectTree(f,doc,nodeTree,creator);
+		var tree=doc.select('.pr-tree').first();
+		c.content().writeBytes(tree.html().getBytes());
+		return;
+	}
+	printWelcome(doc,f);
+	printProjectTree(f,doc,nodeTree,creator);
 	c.content().writeBytes(doc.toString().getBytes());
 }
 function printWelcome(doc,f){
 	var connLabel=doc.select('.container > .workbench > .header > .topbar > .items>li[conn]');
-	var wsurl=String.format('ws://%s/myChannel',f.head('Host'));
+	var wsurl=String.format('ws://%s/mic',f.head('Host'));
 	connLabel.attr('wsurl',wsurl);
 	var roleE=doc.select('.container > .workbench > .header > .topbar > .items span[role]').first();
 	var roles=f.session().attribute('uc.roles');
@@ -58,35 +59,34 @@ function printWelcome(doc,f){
 	var codeE=doc.select('.container > .workbench > .header > .topbar > .items span[code]').first();
 	codeE.html(f.session().attribute('uc.principals'));
 }
-function printProjectTree(f,doc,ptStub,creator,rcStub){
+function printProjectTree(f,doc,nodeTree,creator){
 	var foldersE=doc.select('.container > .workbench > .desktop > .column .column-left > .proj-region > .pr-tree > .pr-folders').first();
 	var cli=foldersE.select('>.pr-folder').first().clone();
 	foldersE.empty();
-	var folders=ptStub.getFolders();
+	var folders=nodeTree.listChildFolders('/');
 	for(var i=0;i<folders.length;i++){
 		var folder=folders.get(i);
 		var li=cli.clone();
-		li.attr('id',folder.id);
 		li.attr('code',folder.code);
-		li.attr('title',StringUtil.isEmpty(folder.name)?'':folder.name);
-		li.select('.folder-code').html(folder.code);
-		var count=ptStub.getMethodCountOfFolder(folder.code);
-		li.select('.folder-count>span').html(count);
+		li.attr('path',folder.path);
+		li.attr('title',folder.code+'');
+		li.select('.folder-code').html(folder.name+'');
+//		var count=nodeTree.getMethodCountOfFolder(folder.code);
+//		li.select('.folder-count>span').html(count);
 		
-		printServices(folder.code,li,ptStub,creator,rcStub);
+//		printServices(folder.code,li,nodeTree,creator);
 		
 		foldersE.appendChild(li);
 	}
 }
-function printServices(folderCode,li,ptStub,creator,rcStub){
+function printServices(folderCode,li,nodeTree,creator){
 	var objsE=li.select('.pr-objs').first();
 	var cli=objsE.select('>li').first().clone();
 	objsE.empty();
-	var services=ptStub.getServices(folderCode);
+	var services=nodeTree.getServices(folderCode);
 	for(var i=0;i<services.length;i++){
 		var service=services.get(i);
 		var li=cli.clone();
-		li.attr('id',service.id);
 		li.attr('code',service.code);
 		li.attr('folder',service.folder);
 		li.attr('title',StringUtil.isEmpty(service.name)?'':service.name);
@@ -107,7 +107,6 @@ function printMethods(folderCode,servicecode,li,ptStub,creator,rcStub){
 		var headline=rcStub.getMyRequestHeadline(m.id,creator);
 		var netpt=rcStub.getMyRequestNetprotocol(m.id,creator);
 		var li=methodLi.clone();
-		li.attr('id',m.id+'');
 		li.attr('code',m.code+'');
 		var ptcol='';
 		if(netpt!=null){

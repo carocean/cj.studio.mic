@@ -21,7 +21,7 @@ $(document).ready(function(){
 			//console.log('...onmessage--是否侦:'+frame.isFrame+'; '+frame.heads.command+' '+frame.heads.url+' '+frame.heads.protocol);
 			content=frame.content;//.replace(/\"/g,'"');
 			var report=$.parseJSON(content);
-			if(frame.heads.url.indexOf('/nettest/test-report.service')>-1){
+			if(frame.heads.url.indexOf('/mic/test-report.service')>-1){
 				resul.find('li[state] span').html(report.state);
 				resul.find('li[message] span').html(report.message);
 				resul.find('li[taketime] span').html(report.takeTime);
@@ -62,7 +62,7 @@ $(document).ready(function(){
 		var cjtoken=getCookie('cjtoken');
 		var frame={
 				heads:{
-					url:'/nettest/public/online.service',
+					url:'/mic/public/online.service',
 					command:'get',
 					protocol:'ws/1.0'
 				},

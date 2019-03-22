@@ -285,7 +285,7 @@
 					</div>
 					<div class="column-left">
 						<div class="proj-region">
-							<label>项目</label>
+							<label>管理中心</label>
 							<div class="pr-toolbar">
 								<div class="popup-template">
 									<ul class="popup-ul root">
@@ -302,10 +302,10 @@
 											<ul class="popup-rbar-table">
 												<li class="popup-rbar-row">
 													<div class="popup-rbar-cell code">
-														<input placeholder="文件夹代码名">
+														<input placeholder="文件夹代码名" readonly="readonly">
 													</div>
 													<div class="popup-rbar-cell name">
-														<input placeholder="文件夹显示名">
+														<input placeholder="文件夹显示名" required="required">
 													</div>
 													<div class="popup-rbar-cell save" title="保存">
 														<img alt="" src="img/save.svg">
@@ -353,7 +353,7 @@
 												<span>文件夹</span>
 											</div>
 											<ul class="popup-bar-right-ul">
-												<li class="popup-bar-right-li" addService title="添加服务对象"><img
+												<li class="popup-bar-right-li" addService title="添加子文件夹"><img
 													src="img/tianjia.svg"></li>
 											</ul>
 										</li>
@@ -361,7 +361,7 @@
 											<ul class="popup-rbar-table">
 												<li class="popup-rbar-row">
 													<div class="popup-rbar-cell code">
-														<input placeholder="服务名">
+														<input placeholder="文件夹名">
 													</div>
 													<div class="popup-rbar-cell name">
 														<input placeholder="描述">
@@ -375,7 +375,7 @@
 												</li>
 												<li class="popup-rbar-row">
 													<div class="popup-rbar-cell">
-														<input placeholder="服务名">
+														<input placeholder="文件夹名">
 													</div>
 													<div class="popup-rbar-cell">
 														<input placeholder="描述">
@@ -389,7 +389,7 @@
 												</li>
 												<li class="popup-rbar-row">
 													<div class="popup-rbar-cell">
-														<input placeholder="服务名">
+														<input placeholder="文件夹名">
 													</div>
 													<div class="popup-rbar-cell">
 														<input placeholder="描述">
@@ -407,7 +407,7 @@
 											<img class="folder-arrow" isdown='false' src="img/arrow.svg">
 											<img class="folder-face" src="img/folder.svg">
 											<ul class="folder-title">
-												<li class="folder-code">中台网关</li>
+												<li class="folder-code">基础架构网关</li>
 												<li class="folder-count"><span>29</span><label>个</label></li>
 											</ul>
 										</div> <span class="popup-arrow" arrow="folder"><img
@@ -416,7 +416,7 @@
 											<ul class="popup-ul service">
 												<li class="popup-tbar popup-bar">
 													<div class="popup-bar-left" title="双击重命名">
-														<span>服务对象x</span>
+														<span>即时通讯网关</span>
 													</div>
 													<ul class="popup-bar-right-ul">
 														<li class="popup-bar-right-li" addMethod title="添加服务方法"><img
@@ -468,9 +468,31 @@
 										<ul class="pr-objs">
 											<li class="pr-obj"><div class="obj-main">
 													<img class="obj-arrow" isdown='false' src="img/arrow.svg">
-													<img class="obj-face" src="img/running.svg">
+													<img class="obj-face" src="img/microservice.svg">
 													<ul class="obj-title">
-														<li class="obj-code">网关1</li>
+														<li class="obj-code">即时通讯网关</li>
+													</ul>
+												</div>
+												<ul class="pr-methods">
+													<li class="pr-method"><div class="method-main">
+															<img class="method-command" src="img/stoped.svg">
+															<ul class="method-title">
+																<li class="method-code" title="即时通讯网关">cj.studio.imc.be.im</li>
+															</ul>
+														</div> <span class="popup-arrow" arrow="method">...&nbsp;</span></li>
+													<li class="pr-method"><div class="method-main">
+															<img class="method-command" src="img/running.svg">
+															<ul class="method-title">
+																<li class="method-code" title="在线用户或设备网关">cj.studio.imc.be.online</li>
+															</ul>
+														</div> <span class="popup-arrow" arrow="method">...&nbsp;</span></li>
+												</ul> <span class="popup-arrow" arrow="obj"><img
+													src="img/arrow-right.svg"></span></li>
+											<li class="pr-obj"><div class="obj-main">
+													<img class="obj-arrow" isdown='false' src="img/arrow.svg">
+													<img class="obj-face" src="img/microservice.svg">
+													<ul class="obj-title">
+														<li class="obj-code">测试中心网关</li>
 													</ul>
 												</div>
 												<div class="popup-template">
@@ -483,171 +505,16 @@
 
 															</ul>
 														</li>
-														<li class="popup-ibar  popup-bar">
-															<div class="popup-bar-left">
-																<span>运行策略</span>
-															</div>
-															<ul class="popup-bar-right-ul">
-																<li class="popup-bar-right-li" title="保存" save><img
-																	src="img/save.svg"></li>
-																<li class="popup-bar-right-li" title="运行" run><img
-																	src="img/run.svg"></li>
-																<li class="popup-bar-right-li" title="停止" stop><img
-																	src="img/stop.svg"></li>
-															</ul>
-														</li>
-														<li class="popup-ibar-region">
-															<ul class="popup-ibar-table">
-																<li class="popup-ibar-row">
-																	<div class="popup-ibar-cell">
-																		<label>线程数</label>
-																	</div>
-																	<div class="popup-ibar-cell">
-																		<input threadcount type="text"
-																			placeholder="线程数就是模拟用户并发数">
-																	</div>
-																</li>
-																<li class="popup-ibar-row">
-																	<div class="popup-ibar-cell">
-																		<label>间隔（毫秒）</label>
-																	</div>
-																	<div class="popup-ibar-cell">
-																		<input intervals type="text"
-																			placeholder="下个线程与上个线程启动时间间隔">
-																	</div>
-																</li>
-																<li class="popup-ibar-row">
-																	<div class="popup-ibar-cell">
-																		<label>循环</label><input type="checkbox" alwaysloop
-																			placeholder="永远循环">
-																	</div>
-																	<div class="popup-ibar-cell">
-																		<input type="text" placeholder="循环次数" loopcount>
-																	</div>
-																</li>
-															</ul>
-														</li>
-														<li class="popup-rbar popup-bar">
-															<div class="popup-bar-left">
-																<span>测试报告</span>
-															</div>
-															<ul class="popup-bar-right-ul">
-																<li class="popup-bar-right-li" title="服务方法数"><label></label></li>
-															</ul>
-														</li>
-														<li class="popup-rbar-region test-report">
-															<ul class="popup-rbar-table">
-																<li class="popup-rbar-row header">
-																	<div style="width: 10px;"></div>
-																	<div class="popup-rbar-cell" simcount>
-																		<label>取样数</label>
-																	</div>
-																	<div class="popup-rbar-cell" avg>
-																		<label>平均数</label>
-																	</div>
-																	<div class="popup-rbar-cell" min>
-																		<label>最小</label>
-																	</div>
-																	<div class="popup-rbar-cell" max>
-																		<label>最大</label>
-																	</div>
-																	<div class="popup-rbar-cell" errrate>
-																		<label>错误率</label>
-																	</div>
-																	<div class="popup-rbar-cell" passrate>
-																		<label>通过率</label>
-																	</div>
-																	<div style="width: 10px;"></div>
-																</li>
-																<li class="popup-rbar-row data">
-																	<div style="width: 10px;"></div>
-																	<div class="popup-rbar-cell" simcount>
-																		<label>0</label>
-																	</div>
-																	<div class="popup-rbar-cell" avg>
-																		<label>0</label>
-																	</div>
-																	<div class="popup-rbar-cell" min>
-																		<label>0</label>
-																	</div>
-																	<div class="popup-rbar-cell" max>
-																		<label>0</label>
-																	</div>
-																	<div class="popup-rbar-cell" errrate>
-																		<label>0</label>
-																	</div>
-																	<div class="popup-rbar-cell" passrate>
-																		<label>0</label>
-																	</div>
-																	<div style="width: 10px;"></div>
-																</li>
-															</ul>
-														</li>
 													</ul>
 												</div>
 												<ul class="pr-methods">
 													<li class="pr-method"><div class="method-main">
-															<label class="method-command" title="命令">?</label>
+															<img class="method-command" src="img/running.svg">
 															<ul class="method-title">
-																<li class="method-code">服务器</li>
-															</ul>
-														</div> <span class="popup-arrow" arrow="method">...&nbsp;</span></li>
-													<li class="pr-method"><div class="method-main">
-															<label class="method-command">post</label>
-															<ul class="method-title">
-																<li class="method-code">目标</li>
-															</ul>
-														</div> <span class="popup-arrow" arrow="method">...&nbsp;</span></li>
-													<li class="pr-method"><div class="method-main">
-															<label class="method-command">post</label>
-															<ul class="method-title">
-																<li class="method-code">监视</li>
+																<li class="method-code" title="测试中心中台">cj.studio.nettest.be</li>
 															</ul>
 														</div> <span class="popup-arrow" arrow="method">...&nbsp;</span></li>
 												</ul> <span class="popup-arrow" arrow="obj"><img
-													src="img/arrow-right.svg"></span></li>
-											<li class="pr-obj"><div class="obj-main">
-													<img class="obj-arrow" isdown='false' src="img/arrow.svg">
-													<img class="obj-face" src="img/stoped.svg">
-													<ul class="obj-title">
-														<li class="obj-code">网关2</li>
-													</ul>
-												</div>
-												<ul class="pr-methods">
-													<li class="pr-method"><div class="method-main">
-															<label class="method-command">post</label>
-															<ul class="method-title">
-																<li class="method-code">uc</li>
-															</ul>
-														</div> <span class="popup-arrow" arrow="method">...&nbsp;</span></li>
-												</ul> <span class="popup-arrow" arrow="obj"><img
-													src="img/arrow-right.svg"></span></li>
-										</ul></li>
-									<li class="pr-folder"><div class="folder-main">
-											<img class="folder-arrow" isdown='false' src="img/arrow.svg">
-											<img class="folder-face" src="img/folder.svg">
-											<ul class="folder-title">
-												<li class="folder-code">uc</li>
-												<li class="folder-count"><span>29</span><label>个</label></li>
-											</ul>
-										</div> <span class="popup-arrow" arrow="folder"><img
-											src="img/arrow-right.svg"></span>
-										<ul class="pr-objs">
-											<li class="pr-obj"><div class="obj-main">
-													<img class="obj-arrow" isdown='false' src="img/arrow.svg">
-													<img class="obj-face" src="img/microservice.svg">
-													<ul class="obj-title">
-														<li class="obj-code">uc</li>
-													</ul>
-												</div>
-												<ul class="pr-methods">
-													<li class="pr-method"><div class="method-main">
-															<label class="method-command">post</label>
-															<ul class="method-title">
-																<li class="method-code">uc</li>
-															</ul>
-														</div> <span class="popup-arrow" arrow="method">...&nbsp;</span></li>
-												</ul> <span class="popup-arrow"><img
 													src="img/arrow-right.svg"></span></li>
 										</ul></li>
 								</ul>

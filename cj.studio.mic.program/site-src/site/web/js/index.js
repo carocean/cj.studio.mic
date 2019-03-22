@@ -30,7 +30,8 @@ $(document).ready(function(){
 				for(var i=0;i<folders.length;i++){
 					var folder=folders[i];
 					var li=cli.clone();
-					li.attr('id',folder.id);
+					li.attr('code',folder.code);
+					li.attr('path',folder.path);
 					li.find('.popup-rbar-cell.code>input').attr('value',folder.code);
 					li.find('.popup-rbar-cell.name>input').attr('value',folder.name==null?'':folder.name);
 					ul.append(li);
@@ -56,11 +57,13 @@ $(document).ready(function(){
 			case 'folder':
 				var template=$(this).parents('.pr-tree').find('>.popup-template');
 				var folder=$(this).parents('.pr-folder').attr('code');
+				var path=$(this).parents('.pr-folder').attr('path');
 				pannelTools.attr('folder',folder);
+				pannelTools.attr('path',path);
 				var titlebar=template.find('.popup-bar-left>span');
 				titlebar.html(folder);
 				$(this).siblings('.folder-main').trigger('click');
-				$.get('./views/service-get.service',{folder:folder},function(data){
+				$.get('./views/folder-get.service',{path:path+folder},function(data){
 					var ul=template.find('.popup-rbar-table').first();
 					var cli=ul.find('>li').first().clone();
 					var services=$.parseJSON(data);
@@ -76,7 +79,8 @@ $(document).ready(function(){
 					for(var i=0;i<services.length;i++){
 						var service=services[i];
 						var li=cli.clone();
-						li.attr('id',service.id);
+						li.attr('path',service.path);
+						li.attr('code',service.code);
 						li.find('.popup-rbar-cell.code>input').attr('value',service.code);
 						li.find('.popup-rbar-cell.name>input').attr('value',service.name==null?'':service.name);
 						ul.append(li);
@@ -90,12 +94,13 @@ $(document).ready(function(){
 				var template=$(this).parents('.pr-folder').find('>.popup-template');
 				var obj=$(this).parents('.pr-obj').attr('code');
 				var folder=$(this).parents('.pr-obj').attr('folder');
+				var path=$(this).parents('.pr-obj').attr('path');
 				pannelTools.attr('folder',folder);
-				pannelTools.attr('service',obj);
+				pannelTools.attr('path',path);
 				var titlebar=template.find('.popup-bar-left>span');
 				titlebar.html(obj);
 				$(this).siblings('.obj-main').trigger('click');
-				$.get('./views/method-get.service',{folder:folder,service:obj},function(data){
+				$.get('./views/folder-get.service',{path:path+'/'+folder},function(data){
 					var ul=template.find('.popup-rbar-table').first();
 					var cli=ul.find('>li').first().clone();
 					var services=$.parseJSON(data);
@@ -111,7 +116,8 @@ $(document).ready(function(){
 					for(var i=0;i<services.length;i++){
 						var service=services[i];
 						var li=cli.clone();
-						li.attr('id',service.id);
+						li.attr('path',service.path);
+						li.attr('code',service.code);
 						li.find('.popup-rbar-cell.code>input').attr('value',service.code);
 						li.find('.popup-rbar-cell.name>input').attr('value',service.name==null?'':service.name);
 						ul.append(li);

@@ -19,7 +19,7 @@ sourceSets {
 
 dependencies {
 	compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
-	//compile project(':cj.studio.nettest.be.stub');
+	compile project(':cj.studio.mic.ultimate');
 	compile fileTree('../global/runtime')
 	compile fileTree('src/cj/refembeds')
 	compile fileTree('src/cj/references')

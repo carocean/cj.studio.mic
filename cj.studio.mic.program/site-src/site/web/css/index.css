@@ -470,7 +470,9 @@
 	padding-left: 10px;
 }
 .container>.workbench>.desktop>.column  .column-left>.proj-region>.pr-tree>.pr-folders>.pr-folder>.pr-objs>.pr-obj>.pr-methods>.pr-method>.method-main>.method-command{
-	color: green;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
 }
 .container>.workbench>.desktop>.column  .column-left>.proj-region>.pr-tree>.pr-folders>.pr-folder>.pr-objs>.pr-obj>.pr-methods>.pr-method>.popup-arrow{
 	position: absolute;

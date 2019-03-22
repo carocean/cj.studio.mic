@@ -96,7 +96,8 @@ task release(type: Copy) {
 			println 'mic 环境发布完毕!'
 		}
 }
+release.dependsOn ":cj.studio.mic.ultimate:release"
 release.dependsOn ":cj.studio.mic.program:release"
 release.dependsOn ":cj.studio.mic.plugin:release"
-//tasks.getByPath(':cj.studio.mic.program:release').mustRunAfter tasks.getByPath(':cj.studio.mic.stub:release')
+tasks.getByPath(':cj.studio.mic.program:release').mustRunAfter tasks.getByPath(':cj.studio.mic.ultimate:release')
 

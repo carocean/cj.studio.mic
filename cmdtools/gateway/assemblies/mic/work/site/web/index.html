@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="baidu-site-verification" content="jKnWxgQdhf">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+<meta name="renderer" content="webkit|ie-stand">
+<title>Mic.Center™</title>
+<meta name="keywords" content="cj工作室">
+<link href="css/global.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
+
+<script type="text/javascript" src="js/jquery/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="js/socket.io.js"></script>
+<script type="text/javascript" src="js/date.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/ws-event.js"></script>
+<script type="text/javascript" src="js/root-panel.js"></script>
+<script type="text/javascript" src="js/folder-panel.js"></script>
+<script type="text/javascript" src="js/service-panel.js"></script>
+<script type="text/javascript" src="js/method-panel.js"></script>
+<script type="text/javascript" src="js/request-panel.js"></script>
+<script type="text/javascript" src="js/send.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="workbench">
+			<div class="header">
+				<div class="topbar">
+					<ul class="items">
+						<li conn><span>未连接</span></li>
+						<li user><label>欢迎</label><span role>角色</span>&nbsp;&nbsp;<span
+							code>carocean</span></li>
+						<li logout><span>退出</span></li>
+					</ul>
+				</div>
+				<div class="docker wrap">
+					<div class="docker-layout">
+						<div class="logo-region">
+							<div class="logo">
+								<img src="img/logo.svg"> <span class="anchor">网关监控与管理中心</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="desktop">
+				<div class="desktop-top wrap">
+					<div style="height: 10px;"></div>
+					<div class="top-select">
+						<span class="label">位置://</span><span folder class="top-name">目录</span>/<span
+							service class="top-name">服务</span>.<span method class="top-name">方法</span>
+					</div>
+				</div>
+				<div class="column wrap">
+					<div class="layout-main">
+						<div class="column-context">
+							<ul class="main-column-lets">
+								<li class="portlet" position><span label>位置</span>://<span
+									folder>目录</span>/<span service>服务</span>.<span method>方法</span></li>
+								<li class="portlet">
+									<ul class="req-url">
+										<li class="dest"><input placeholder="输入目标名" type="text"></li>
+										<li class="url"><input placeholder="输入连接地址" type="text"></li>
+										<li class="state"><label>未连接</label></li>
+									</ul>
+									<div class="net-protocols">
+										<ul>
+											<li><input id="httpOnServer" type="radio"
+												name="net-protocol"><label for="httpOnServer">http(OnServer)</label></li>
+											<li><input id="wsOnBrowser" type="radio"
+												name="net-protocol"><label for="wsOnBrowser">ws(OnBrowser)</label></li>
+											<li><input id="wsOnServer" type="radio"
+												name="net-protocol"><label for="wsOnServer">ws(OnServer)</label></li>
+											<li><input id="tcpOnServer" type="radio"
+												name="net-protocol"><label for="tcpOnServer">tcp(OnServer)</label></li>
+											<li><input id="udtOnServer" type="radio"
+												name="net-protocol"><label for="udtOnServer">udt(OnServer)</label></li>
+										</ul>
+									</div>
+									<div class="headline">
+										<ul>
+											<li class="cmd"><input type="text" list="cmdlist"
+												placeholder="输入自定义命令"> <datalist id="cmdlist">
+													<option>GET</option>
+													<option>POST</option>
+													<option>PUT</option>
+													<option>PULL</option>
+													<option>PUSH</option>
+												</datalist></li>
+											<li class="url"><input type="text"
+												placeholder="输入请求地址或后台请求字串名"></li>
+											<li class="prot"><input type="text" list="ptlist"
+												placeholder="输入自定义协议"> <datalist id="ptlist">
+													<option>HTTP/1.1</option>
+													<option>WS/1.0</option>
+													<option>TCP/1.0</option>
+													<option>UDT/1.0</option>
+													<option>HTTP/1.0</option>
+												</datalist></li>
+											<li class="send"><input type="button" value="发送"></li>
+										</ul>
+									</div>
+									<div class="settings">
+										<ul class="tabs">
+											<li class="tab selected" kind="parameter"><span>参数</span></li>
+											<li class="tab" kind="header"><span>头</span></li>
+											<li class="tab" kind="content"><span>内容</span></li>
+										</ul>
+										<ul class="tab-panels">
+											<li class="tab-panel parameter">
+												<ul class="tab-table-ul">
+													<li class="tab-table-row t-header">
+														<div class="tab-table-cell key">
+															<span>键</span>
+														</div>
+														<div class="tab-table-cell value">
+															<span>值</span>
+														</div>
+														<div class="tab-table-cell desc">
+															<span>说明</span>
+														</div>
+													</li>
+													<li class="tab-table-row t-content">
+														<div class="tab-table-cell key">
+															<input type="text" placeholder="输入键"
+																list="parameter-proposes">
+															<datalist id="parameter-proposes">
+																<option>Rest-StubFace</option>
+																<option>Rest-Command</option>
+															</datalist>
+														</div>
+														<div class="tab-table-cell value">
+															<input type="text" placeholder="输入值">
+														</div>
+														<div class="tab-table-cell desc">
+															<input type="text" placeholder="输入说明，可为空">
+														</div>
+														<div class="tab-table-cell op">
+															<span>X</span>
+														</div>
+													</li>
+												</ul>
+											</li>
+											<li class="tab-panel header">
+												<ul class="tab-table-ul">
+													<li class="tab-table-row t-header">
+														<div class="tab-table-cell key">
+															<span>键</span>
+														</div>
+														<div class="tab-table-cell value">
+															<span>值</span>
+														</div>
+														<div class="tab-table-cell desc">
+															<span>说明</span>
+														</div>
+													</li>
+													<li class="tab-table-row t-content">
+														<div class="tab-table-cell key">
+															<input type="text" placeholder="输入键"
+																list="header-proposes">
+															<datalist id="header-proposes">
+																<option>Rest-StubFace</option>
+																<option>Rest-Command</option>
+																<option>Cookie</option>
+																<option>Connection</option>
+																<option>Pragma</option>
+																<option>Cache-Control</option>
+																<option>Host</option>
+															</datalist>
+														</div>
+														<div class="tab-table-cell value">
+															<input type="text" placeholder="输入值">
+														</div>
+														<div class="tab-table-cell desc">
+															<input type="text" placeholder="输入说明，可为空">
+														</div>
+														<div class="tab-table-cell op">
+															<span>X</span>
+														</div>
+													</li>
+												</ul>
+											</li>
+											<li class="tab-panel content">
+												<ul class="radios">
+													<li><input id="none" type="radio" name="body-type"
+														checked="checked"><label for="none">None</label></li>
+													<li><input id="any" type="radio" name="body-type"><label
+														for="any">Any</label></li>
+													<li><input id="xwfu" type="radio" name="body-type"><label
+														for="xwfu">x-www-form-urlencode</label></li>
+													<li><input id="formdata" type="radio" name="body-type"><label
+														for="formdata">Form-Data</label></li>
+												</ul>
+												<ul class="tab-panels">
+													<li class="tab-panel None"></li>
+													<li class="tab-panel Any"><textarea rows="" cols=""
+															placeholder="输入内容..."></textarea></li>
+													<li class="tab-panel x-www-form-urlencode">
+														<ul class="tab-table-ul">
+															<li class="tab-table-row t-header">
+																<div class="tab-table-cell key">
+																	<span>键</span>
+																</div>
+																<div class="tab-table-cell value">
+																	<span>值</span>
+																</div>
+																<div class="tab-table-cell desc">
+																	<span>说明</span>
+																</div>
+															</li>
+															<li class="tab-table-row t-content">
+																<div class="tab-table-cell key">
+																	<input type="text" placeholder="输入键">
+																</div>
+																<div class="tab-table-cell value">
+																	<input type="text" placeholder="输入值">
+																</div>
+																<div class="tab-table-cell desc">
+																	<input type="text" placeholder="输入说明，可为空">
+																</div>
+																<div class="tab-table-cell op">
+																	<span>X</span>
+																</div>
+															</li>
+														</ul>
+													</li>
+													<li class="tab-panel Form-Data"><ul
+															class="tab-table-ul">
+															<li class="tab-table-row t-header">
+																<div class="tab-table-cell key">
+																	<span>键</span>
+																</div>
+																<div class="tab-table-cell value">
+																	<span>值</span>
+																</div>
+																<div class="tab-table-cell desc">
+																	<span>说明</span>
+																</div>
+															</li>
+															<li class="tab-table-row t-content">
+																<div class="tab-table-cell key mutil">
+																	<input type="text" placeholder="输入键"> <img
+																		alt="" src="img/arrow-down.svg">
+																	<ul class="down-list box-shadow-1">
+																		<li text>Text</li>
+																		<li file>File</li>
+																	</ul>
+																</div>
+																<div class="tab-table-cell value">
+																	<input type="text" placeholder="输入值"> <input
+																		type="file">
+																</div>
+																<div class="tab-table-cell desc">
+																	<input type="text" placeholder="输入说明，可为空">
+																</div>
+																<div class="tab-table-cell op">
+																	<span>X</span>
+																</div>
+															</li>
+														</ul></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class="portlet reslet">
+									<div class="res-bar">
+										<span>晌应结果：</span>
+										<ul>
+											<li taketime><label>耗时： </label><span></span></li>
+											<li ctime><label>创建时间： </label><span></span></li>
+											<li state><label>状态： </label><span></span></li>
+											<li message><label>消息： </label><span></span></li>
+										</ul>
+									</div>
+									<div class="response">
+										<div class="content">无</div>
+									</div>
+								</li>
+							</ul>
+							<div class="panel-tools on-mask"></div>
+						</div>
+					</div>
+					<div class="column-left">
+						<div class="proj-region">
+							<label>管理中心</label>
+							<div class="pr-toolbar">
+								<div class="popup-template">
+									<ul class="popup-ul root">
+										<li class="popup-tbar popup-bar">
+											<div class="popup-bar-left">
+												<span>所有文件夹</span>
+											</div>
+											<ul class="popup-bar-right-ul">
+												<li class="popup-bar-right-li" addFolder title="添加文件夹"><img
+													src="img/tianjia.svg"></li>
+											</ul>
+										</li>
+										<li class="popup-tbar-region">
+											<ul class="popup-rbar-table">
+												<li class="popup-rbar-row">
+													<div class="popup-rbar-cell code">
+														<input placeholder="文件夹代码名" readonly="readonly">
+													</div>
+													<div class="popup-rbar-cell name">
+														<input placeholder="文件夹显示名" required="required">
+													</div>
+													<div class="popup-rbar-cell save" title="保存">
+														<img alt="" src="img/save.svg">
+													</div>
+													<div class="popup-rbar-cell delete" title="删除">
+														<img alt="" src="img/delete.svg">
+													</div>
+												</li>
+												<li class="popup-rbar-row">
+													<div class="popup-rbar-cell">
+														<input placeholder="文件夹代码名">
+													</div>
+													<div class="popup-rbar-cell">
+														<input placeholder="文件夹显示名">
+													</div>
+													<div class="popup-rbar-cell" title="删除">
+														<img alt="" src="img/delete.svg">
+													</div>
+												</li>
+												<li class="popup-rbar-row">
+													<div class="popup-rbar-cell">
+														<input placeholder="文件夹代码名">
+													</div>
+													<div class="popup-rbar-cell">
+														<input placeholder="文件夹显示名">
+													</div>
+													<div class="popup-rbar-cell" title="删除">
+														<img alt="" src="img/delete.svg">
+													</div>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+								<ul>
+									<li addFolder title="添加文件夹"><img src="img/add.svg"
+										arrow="root"></li>
+								</ul>
+							</div>
+							<div class="pr-tree">
+								<div class="popup-template">
+									<ul class="popup-ul folder">
+										<li class="popup-tbar popup-bar">
+											<div class="popup-bar-left">
+												<span>文件夹</span>
+											</div>
+											<ul class="popup-bar-right-ul">
+												<li class="popup-bar-right-li" addService title="添加子文件夹"><img
+													src="img/tianjia.svg"></li>
+											</ul>
+										</li>
+										<li class="popup-tbar-region">
+											<ul class="popup-rbar-table">
+												<li class="popup-rbar-row">
+													<div class="popup-rbar-cell code">
+														<input placeholder="文件夹名">
+													</div>
+													<div class="popup-rbar-cell name">
+														<input placeholder="描述">
+													</div>
+													<div class="popup-rbar-cell save" title="保存">
+														<img alt="" src="img/save.svg">
+													</div>
+													<div class="popup-rbar-cell delete" title="删除">
+														<img alt="" src="img/delete.svg">
+													</div>
+												</li>
+												<li class="popup-rbar-row">
+													<div class="popup-rbar-cell">
+														<input placeholder="文件夹名">
+													</div>
+													<div class="popup-rbar-cell">
+														<input placeholder="描述">
+													</div>
+													<div class="popup-rbar-cell save" title="保存">
+														<img alt="" src="img/save.svg">
+													</div>
+													<div class="popup-rbar-cell delete" title="删除">
+														<img alt="" src="img/delete.svg">
+													</div>
+												</li>
+												<li class="popup-rbar-row">
+													<div class="popup-rbar-cell">
+														<input placeholder="文件夹名">
+													</div>
+													<div class="popup-rbar-cell">
+														<input placeholder="描述">
+													</div>
+													<div class="popup-rbar-cell" title="删除">
+														<img alt="" src="img/delete.svg">
+													</div>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+								<ul class="pr-folders">
+									<li class="pr-folder"><div class="folder-main">
+											<img class="folder-arrow" isdown='false' src="img/arrow.svg">
+											<img class="folder-face" src="img/folder.svg">
+											<ul class="folder-title">
+												<li class="folder-code">基础架构网关</li>
+												<li class="folder-count"><span>29</span><label>个</label></li>
+											</ul>
+										</div> <span class="popup-arrow" arrow="folder"><img
+											src="img/arrow-right.svg"></span>
+										<div class="popup-template">
+											<ul class="popup-ul service">
+												<li class="popup-tbar popup-bar">
+													<div class="popup-bar-left" title="双击重命名">
+														<span>即时通讯网关</span>
+													</div>
+													<ul class="popup-bar-right-ul">
+														<li class="popup-bar-right-li" addMethod title="添加服务方法"><img
+															src="img/tianjia.svg"></li>
+													</ul>
+												</li>
+												<li class="popup-tbar-region">
+													<ul class="popup-rbar-table">
+														<li class="popup-rbar-row">
+															<div class="popup-rbar-cell code">
+																<input placeholder="方法名">
+															</div>
+															<div class="popup-rbar-cell name">
+																<input placeholder="描述">
+															</div>
+															<div class="popup-rbar-cell save" title="保存">
+																<img alt="" src="img/save.svg">
+															</div>
+															<div class="popup-rbar-cell delete" title="删除">
+																<img alt="" src="img/delete.svg">
+															</div>
+														</li>
+														<li class="popup-rbar-row">
+															<div class="popup-rbar-cell">
+																<input placeholder="方法名">
+															</div>
+															<div class="popup-rbar-cell">
+																<input placeholder="描述">
+															</div>
+															<div class="popup-rbar-cell" title="删除">
+																<img alt="" src="img/delete.svg">
+															</div>
+														</li>
+														<li class="popup-rbar-row">
+															<div class="popup-rbar-cell">
+																<input placeholder="方法名">
+															</div>
+															<div class="popup-rbar-cell">
+																<input placeholder="描述">
+															</div>
+															<div class="popup-rbar-cell" title="删除">
+																<img alt="" src="img/delete.svg">
+															</div>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+										<ul class="pr-objs">
+											<li class="pr-obj"><div class="obj-main">
+													<img class="obj-arrow" isdown='false' src="img/arrow.svg">
+													<img class="obj-face" src="img/microservice.svg">
+													<ul class="obj-title">
+														<li class="obj-code">即时通讯网关</li>
+													</ul>
+												</div>
+												<ul class="pr-methods">
+													<li class="pr-method"><div class="method-main">
+															<img class="method-command" src="img/stoped.svg">
+															<ul class="method-title">
+																<li class="method-code" title="即时通讯网关">cj.studio.imc.be.im</li>
+															</ul>
+														</div> <span class="popup-arrow" arrow="method">...&nbsp;</span></li>
+													<li class="pr-method"><div class="method-main">
+															<img class="method-command" src="img/running.svg">
+															<ul class="method-title">
+																<li class="method-code" title="在线用户或设备网关">cj.studio.imc.be.online</li>
+															</ul>
+														</div> <span class="popup-arrow" arrow="method">...&nbsp;</span></li>
+												</ul> <span class="popup-arrow" arrow="obj"><img
+													src="img/arrow-right.svg"></span></li>
+											<li class="pr-obj"><div class="obj-main">
+													<img class="obj-arrow" isdown='false' src="img/arrow.svg">
+													<img class="obj-face" src="img/microservice.svg">
+													<ul class="obj-title">
+														<li class="obj-code">测试中心网关</li>
+													</ul>
+												</div>
+												<div class="popup-template">
+													<ul class="popup-ul method">
+														<li class="popup-tbar popup-bar">
+															<div class="popup-bar-left">
+																<span>方法x</span> <label></label>
+															</div>
+															<ul class="popup-bar-right-ul">
+
+															</ul>
+														</li>
+													</ul>
+												</div>
+												<ul class="pr-methods">
+													<li class="pr-method"><div class="method-main">
+															<img class="method-command" src="img/running.svg">
+															<ul class="method-title">
+																<li class="method-code" title="测试中心中台">cj.studio.nettest.be</li>
+															</ul>
+														</div> <span class="popup-arrow" arrow="method">...&nbsp;</span></li>
+												</ul> <span class="popup-arrow" arrow="obj"><img
+													src="img/arrow-right.svg"></span></li>
+										</ul></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mask">
+					<div class="content"></div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footer-box">
+				<div class="wrap">
+					<div class="contents">
+						<p licence="">
+							<a class="crop">CJ Studio</a><span></span>
+						</p>
+						<p copyright="">
+							<span label="">Copyright © 2016 Netos Cloud. All rights
+								reserved. </span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
