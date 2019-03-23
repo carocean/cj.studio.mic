@@ -5,7 +5,9 @@ $(document).ready(function(){
 	panelTools.delegate('> .popup-ul.folder > .popup-bar > .popup-bar-right-ul > li[addService]','click',function(){
 		var table=$(this).parents('.popup-bar').siblings('.popup-tbar-region').find('.popup-rbar-table').first();
 		var cli=table.find('.popup-rbar-row').first().clone();
-		cli.removeAttr('id');
+		cli.removeAttr('path');
+		cli.find('.popup-rbar-cell.code>input').removeAttr('readonly');
+		cli.find('.popup-rbar-cell.code>input').removeAttr('disabled');
 		cli.find('.popup-rbar-cell.code>input').val('');
 		cli.find('.popup-rbar-cell.name>input').val('');
 		table.append(cli);
@@ -16,22 +18,24 @@ $(document).ready(function(){
 		var row=$(this).parent('.popup-rbar-row');
 		var code=row.find('.popup-rbar-cell.code>input').val();
 		var name=row.find('.popup-rbar-cell.name>input').val();
-		var id=row.attr('id');
-		var folder=panelTools.attr('folder');
-		var action=(typeof id=='undefined')?'new':'update';
+		var path=row.attr('path');
+		var action=(typeof path=='undefined')?'new':'update';
 		switch(action){
 		case 'new':
-			$.get('./views/service-add.service',{folder,code,name},function(data){
+			path=panelTools.attr('path')+panelTools.attr('folder');
+			$.get('./views/folder-add.service',{code,path,name},function(data){
 				var obj=$.parseJSON(data);
-				row.attr('id',obj.id);
+				row.attr('path',obj.path);
 				row.find('.popup-rbar-cell>input').removeAttr('style');
+				row.find('.popup-rbar-cell.code>input').attr('readonly','readonly');
+				row.find('.popup-rbar-cell.code>input').attr('disabled','disabled');
 				panelTools.trigger('refreshPTree');
 			}).error(function(e){
 				alert(e.responseText);
 			});
 			break;
 		case 'update':
-			$.get('./views/service-update.service',{id,folder,code,name},function(){
+			$.get('./views/folder-update.service',{path,code,name},function(){
 				row.find('.popup-rbar-cell>input').removeAttr('style');
 				panelTools.trigger('refreshPTree');
 			}).error(function(e){
@@ -44,21 +48,21 @@ $(document).ready(function(){
 	panelTools.delegate('> .popup-ul.folder > .popup-tbar-region > .popup-rbar-table > .popup-rbar-row > .popup-rbar-cell.delete','click',function(){
 		var row=$(this).parents('.popup-rbar-row');
 		var crow=row.clone();
-		crow.removeAttr('id');
+		crow.removeAttr('path');
 		crow.removeAttr('style');
 		crow.find('.popup-rbar-cell.code>input').val('');
 		crow.find('.popup-rbar-cell.name>input').val('');
 		var table=$(this).parents(' .popup-rbar-table');
-		var id=row.attr('id');
-		var folder=panelTools.attr('folder');
-		if(typeof id=='undefined'){
+		var path=row.attr('path');
+		var code=row.attr('code');
+		if(typeof path=='undefined'){
 			row.remove();
 			if(table.find('.popup-rbar-row').length==0){
 				table.append(crow);
 			}
 			return;
 		}
-		$.get('./views/service-delete.service',{id,folder},function(){
+		$.get('./views/folder-delete.service',{path:path+'/'+code},function(){
 			row.remove();
 			if(table.find('.popup-rbar-row').length==0){
 				table.append(crow);

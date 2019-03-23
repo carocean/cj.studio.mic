@@ -67,32 +67,32 @@ function printProjectTree(f,doc,nodeTree,creator){
 	for(var i=0;i<folders.length;i++){
 		var folder=folders.get(i);
 		var li=cli.clone();
-		li.attr('code',folder.code);
-		li.attr('path',folder.path);
+		li.attr('code',folder.code+'');
+		li.attr('path',folder.path+'');
 		li.attr('title',folder.code+'');
 		li.select('.folder-code').html(folder.name+'');
 //		var count=nodeTree.getMethodCountOfFolder(folder.code);
 //		li.select('.folder-count>span').html(count);
 		
-//		printServices(folder.code,li,nodeTree,creator);
+		printServices(folder.getFullName(),li,nodeTree,creator);
 		
 		foldersE.appendChild(li);
 	}
 }
-function printServices(folderCode,li,nodeTree,creator){
+function printServices(parent,li,nodeTree,creator){
 	var objsE=li.select('.pr-objs').first();
 	var cli=objsE.select('>li').first().clone();
 	objsE.empty();
-	var services=nodeTree.getServices(folderCode);
-	for(var i=0;i<services.length;i++){
-		var service=services.get(i);
+	var folders=nodeTree.listChildFolders(parent);
+	for(var i=0;i<folders.length;i++){
+		var folder=folders.get(i);
 		var li=cli.clone();
-		li.attr('code',service.code);
-		li.attr('folder',service.folder);
-		li.attr('title',StringUtil.isEmpty(service.name)?'':service.name);
-		li.select('.obj-code').html(service.code);
+		li.attr('code',folder.code+'');
+		li.attr('path',folder.path+'');
+		li.attr('title',folder.code+'');
+		li.select('.obj-code').html(folder.name+'');
 		
-		printMethods(folderCode,service.code,li,ptStub,creator,rcStub);
+//		printMethods(folderCode,service.code,li,ptStub,creator,rcStub);
 		
 		objsE.appendChild(li);
 	}

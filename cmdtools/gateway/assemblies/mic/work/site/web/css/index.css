@@ -434,9 +434,7 @@
 	display: inline-block;
 	padding-top: 4px;
 	top:9px;
-}
-.container>.workbench>.desktop>.column  .column-left>.proj-region>.pr-tree>.pr-folders>.pr-folder>.pr-objs>.pr-obj>.popup-arrow:hover{
-	background: #cecece;
+	color: #999;
 }
 .container>.workbench>.desktop>.column  .column-left>.proj-region>.pr-tree>.pr-folders>.pr-folder>.pr-objs>.pr-obj>.popup-arrow>img{
 	width:20px;
@@ -481,9 +479,7 @@
 	display: inline-block;
 	padding-bottom:4px;
 	top:10px;
-}
-.container>.workbench>.desktop>.column  .column-left>.proj-region>.pr-tree>.pr-folders>.pr-folder>.pr-objs>.pr-obj>.pr-methods>.pr-method>.popup-arrow:hover{
-	background: #cecece;
+	color: #999;
 }
 .container>.workbench>.desktop>.column  .column-left>.proj-region>.pr-tree>.pr-folders>.pr-folder>.pr-objs>.pr-obj>.pr-methods>.pr-method>.popup-arrow>img{
 	width:20px;

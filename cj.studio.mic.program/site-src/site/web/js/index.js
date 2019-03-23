@@ -33,6 +33,8 @@ $(document).ready(function(){
 					li.attr('code',folder.code);
 					li.attr('path',folder.path);
 					li.find('.popup-rbar-cell.code>input').attr('value',folder.code);
+					li.find('.popup-rbar-cell.code>input').attr('readonly','readonly');
+					li.find('.popup-rbar-cell.code>input').attr('disabled','disabled');
 					li.find('.popup-rbar-cell.name>input').attr('value',folder.name==null?'':folder.name);
 					ul.append(li);
 				}
@@ -48,13 +50,13 @@ $(document).ready(function(){
 	prRegion.delegate('>.pr-tree>.pr-folders>.pr-folder .popup-arrow','click',function(e){
 		e.stopPropagation();
 		e.preventDefault();
-		if(!mask.is('on')){
-			mask.show();
-		}
 		if(!pannelTools.is('on')){
 			var arrow=$(this).attr('arrow');
 			switch(arrow){
 			case 'folder':
+				if(!mask.is('on')){
+					mask.show();
+				}
 				var template=$(this).parents('.pr-tree').find('>.popup-template');
 				var folder=$(this).parents('.pr-folder').attr('code');
 				var path=$(this).parents('.pr-folder').attr('path');
@@ -81,6 +83,8 @@ $(document).ready(function(){
 						var li=cli.clone();
 						li.attr('path',service.path);
 						li.attr('code',service.code);
+						li.find('.popup-rbar-cell.code>input').attr('readonly','readonly');
+						li.find('.popup-rbar-cell.code>input').attr('disabled','disabled');
 						li.find('.popup-rbar-cell.code>input').attr('value',service.code);
 						li.find('.popup-rbar-cell.name>input').attr('value',service.name==null?'':service.name);
 						ul.append(li);
@@ -89,79 +93,6 @@ $(document).ready(function(){
 					pannelTools.html(html);
 					pannelTools.show();
 				});
-				break;
-			case 'obj':
-				var template=$(this).parents('.pr-folder').find('>.popup-template');
-				var obj=$(this).parents('.pr-obj').attr('code');
-				var folder=$(this).parents('.pr-obj').attr('folder');
-				var path=$(this).parents('.pr-obj').attr('path');
-				pannelTools.attr('folder',folder);
-				pannelTools.attr('path',path);
-				var titlebar=template.find('.popup-bar-left>span');
-				titlebar.html(obj);
-				$(this).siblings('.obj-main').trigger('click');
-				$.get('./views/folder-get.service',{path:path+'/'+folder},function(data){
-					var ul=template.find('.popup-rbar-table').first();
-					var cli=ul.find('>li').first().clone();
-					var services=$.parseJSON(data);
-					if(services.length==0){
-						ul.empty();
-						ul.append(cli.clone());
-						var html=template.html();
-						pannelTools.html(html);
-						pannelTools.show();
-						return;
-					}
-					ul.empty();
-					for(var i=0;i<services.length;i++){
-						var service=services[i];
-						var li=cli.clone();
-						li.attr('path',service.path);
-						li.attr('code',service.code);
-						li.find('.popup-rbar-cell.code>input').attr('value',service.code);
-						li.find('.popup-rbar-cell.name>input').attr('value',service.name==null?'':service.name);
-						ul.append(li);
-					}
-					var html=template.html();
-					pannelTools.html(html);
-					pannelTools.show();
-				});
-				break;
-			case 'method':
-				var template=$(this).parents('.pr-obj').find('>.popup-template');
-				var method=$(this).parents('.pr-method').attr('code');
-				var folder=$(this).parents('.pr-method').attr('folder');
-				var service=$(this).parents('.pr-method').attr('service');
-				var netprotocol=$(this).parents('.pr-method').attr('netprotocol');
-				if('wsOnBrowser'==netprotocol){
-					alert('不支持wsOnBrowser的压力策试');
-					return;
-				}
-				var mid=$(this).parents('.pr-method').attr('id');
-				pannelTools.attr('folder',folder);
-				pannelTools.attr('service',service);
-				pannelTools.attr('method',method);
-				pannelTools.attr('mid',mid);
-				$(this).siblings('.method-main').trigger('click');
-				var titlebar=template.find('.popup-tbar .popup-bar-left>span');
-				titlebar.html(method);
-				$.get('./views/runner-get.service',{mid},function(data){
-					var obj=$.parseJSON(data);
-					pannelTools.html(template.html());
-					if(obj.strategy){
-						var table= pannelTools.find('.popup-ul.method > .popup-ibar-region > .popup-ibar-table');
-						table.find('input[threadcount]').val(obj.strategy.threadcount);
-						table.find('input[intervals]').val(obj.strategy.intervals);
-						table.find('input[loopcount]').val(obj.strategy.loopcount);
-						if(obj.strategy.alwaysloop){
-							table.find('input[alwaysloop]').prop('checked',true);
-							table.find('input[loopcount]').attr('disabled','disabled');
-						}
-					}
-					pannelTools.show();
-				}).error(function(e){
-					alert(e.responseText);
-				})
 				break;
 			}
 			
@@ -212,135 +143,7 @@ $(document).ready(function(){
 		pos.find('span[service]').html(li.attr('service'));
 		pos.find('span[method]').html(li.attr('code'));
 		pos.attr('mid',li.attr('id'));
-		$.get('./views/netprotocol-get.service',{mid:li.attr('id')},function(data){
-			var obj=$.parseJSON(data);
-			if(obj==null){
-				$(".container > .workbench > .desktop > .column .layout-main .column-context > .main-column-lets input[name='net-protocol']").prop('checked',false);
-				return;
-			}
-			$('#'+obj.protocol).prop('checked',true);
-			var destLabel=$('.portlet .req-url li.dest');
-			var connLabel=$('.portlet .req-url li.state');
-			connLabel.attr('type',obj.protocol);
-			if(connLabel.attr('state')=='isopen'){
-				connLabel.trigger('click');
-			}
-			if('wsOnBrowser'!=obj.protocol){
-				connLabel.hide();
-				destLabel.attr('style','display:table-cell;');
-			}else{
-				connLabel.attr('style','display:table-cell;');
-				destLabel.hide();
-			}
-		}).error(function(e){
-			alert(e.responseText);
-		});
-		$.get('./views/headline-get.service',{mid:li.attr('id')},function(data){
-			var obj=$.parseJSON(data);
-			if(obj==null){
-				$('.portlet .headline > ul > li.cmd > input:text').val('');
-				$('.portlet .headline > ul > li.url > input:text').val('');
-				$('.portlet .headline > ul > li.prot > input:text').val('');
-				return;
-			}
-			$('.portlet .headline > ul > li.cmd > input:text').val(obj.cmd);
-			$('.portlet .headline > ul > li.url > input:text').val(obj.url);
-			$('.portlet .headline > ul > li.prot > input:text').val(obj.protocol);
-		}).error(function(e){
-			alert(e.responseText);
-		});
-		$.get('./views/host-get.service',{mid:li.attr('id')},function(data){
-			var obj=$.parseJSON(data);
-			if(obj==null){
-				$('.portlet .req-url input:text').val('');
-				return;
-			}
-			$('.portlet .req-url li.url input').val(obj.host);
-			$('.portlet .req-url li.dest input').val(obj.dest);
-		}).error(function(e){
-			alert(e.responseText);
-		});
-		$.get('./views/request-parameter-get.service',{mid:li.attr('id')},function(data){
-			var ul=$('.portlet .settings > .tab-panels .tab-panel.parameter .tab-table-ul').first();
-			var cli=ul.children('.tab-table-row.t-content').first().clone();
-			cli.find('input:text').val('');
-			cli.removeAttr('id');
-			ul.empty();
-			var parameters=$.parseJSON(data);
-			if(parameters.length==0){
-				ul.append(cli.clone());
-				return;
-			}
-			for(var i=0;i<parameters.length;i++){
-				var p=parameters[i];
-				var li=cli.clone();
-				li.attr('id',p.id);
-				li.find('.tab-table-cell.key input:text').val(p.key);
-				li.find('.tab-table-cell.value input:text').val(p.value);
-				li.find('.tab-table-cell.desc input:text').val(p.desc);
-				ul.append(li);
-			}
-			ul.append(cli.clone());
-		}).error(function(e){
-			alert(e.responseText);
-		});
-		$.get('./views/request-header-get.service',{mid:li.attr('id')},function(data){
-			var ul=$('.portlet .settings > .tab-panels .tab-panel.header .tab-table-ul').first();
-			var cli=ul.children('.tab-table-row.t-content').first().clone();
-			cli.find('input:text').val('');
-			cli.removeAttr('id');
-			ul.empty();
-			var headers=$.parseJSON(data);
-			if(headers.length==0){
-				ul.append(cli.clone());
-				return;
-			}
-			for(var i=0;i<headers.length;i++){
-				var p=headers[i];
-				var li=cli.clone();
-				li.attr('id',p.id);
-				li.find('.tab-table-cell.key input:text').val(p.key);
-				li.find('.tab-table-cell.value input:text').val(p.value);
-				li.find('.tab-table-cell.desc input:text').val(p.desc);
-				ul.append(li);
-			}
-			ul.append(cli.clone());
-		}).error(function(e){
-			alert(e.responseText);
-		});
-		$.get('./views/request-content-type-get.service',{mid:li.attr('id')},function(data){
-			var obj=$.parseJSON(data);
-			if(obj==null){
-				var none=$('.portlet .settings > .tab-panels .tab-panel.content > ul.radios').find('li #none');
-				none.prop('checked',true);
-				none.trigger('change');
-				return;
-			}
-			var id='#'+obj.type;
-			$(id).prop('checked',true);
-			$(id).trigger('change');
-		}).error(function(e){
-			alert(e.responseText);
-		});
-		$.get('./views/request-response-get.service',{mid:li.attr('id')},function(data){
-			var rescnt=$('.portlet > .response > .content');
-			var resul=$('.portlet > .res-bar ul');
-			if(data==null||(typeof data=='undefined')||data=='null'){
-				resul.hide();
-				rescnt.html('无');
-				return;
-			}
-			var report=$.parseJSON(data);
-			resul.find('li[state] span').html(report.state);
-			resul.find('li[message] span').html(report.message);
-			resul.find('li[taketime] span').html(report.takeTime);
-			var time=new Date(report.ctime).Format('yyyy-MM-dd hh:mm:ss');
-			resul.find('li[ctime] span').html(time);
-			resul.show();
-			rescnt.html(report.response);
-		}).error(function(e){
-			alert(e.responseText);
-		});
+		
 	});
 	var tabPanels=$('.portlet .settings>.tab-panels');
 	var tabs=$('.portlet .settings > .tabs');

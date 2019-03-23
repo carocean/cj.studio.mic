@@ -29,7 +29,10 @@ public class TFolder {
 		return path;
 	}
 	public String getFullName() {
-		return String.format("%s.%s", path,code);
+		if(path.endsWith("/")) {
+			return String.format("%s%s", path,code);
+		}
+		return String.format("%s/%s", path,code);
 	}
 	public void setPath(String path) {
 		this.path = path;

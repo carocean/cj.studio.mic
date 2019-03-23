@@ -7,6 +7,7 @@ $(document).ready(function(){
 		var cli=table.find('.popup-rbar-row').first().clone();
 		cli.removeAttr('path');
 		cli.find('.popup-rbar-cell.code>input').removeAttr('readonly');
+		cli.find('.popup-rbar-cell.code>input').removeAttr('disabled');
 		cli.find('.popup-rbar-cell.code>input').val('');
 		cli.find('.popup-rbar-cell.name>input').val('');
 		table.append(cli);
@@ -31,6 +32,7 @@ $(document).ready(function(){
 				row.attr('code',obj.code);
 				row.find('.popup-rbar-cell>input').removeAttr('style');
 				row.find('.popup-rbar-cell.code>input').attr('readonly','readonly');
+				row.find('.popup-rbar-cell.code>input').attr('disabled','disabled');
 				panelTools.trigger('refreshPTree');
 			}).error(function(e){
 				alert(e.responseText);

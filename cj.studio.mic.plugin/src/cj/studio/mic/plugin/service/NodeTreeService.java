@@ -29,7 +29,7 @@ public class NodeTreeService implements INodeTreeService {
 			throw new EcmException("缺少路径");
 		}
 		if (getFolder(folder.getFullName()) != null) {
-			throw new EcmException("已存在文件夹：" + folder.getPath());
+			throw new EcmException("已存在文件夹：" + folder.getFullName());
 		}
 		folder.setCtime(System.currentTimeMillis());
 		mic.saveDoc("folders", new TupleDocument<>(folder));
@@ -54,6 +54,9 @@ public class NodeTreeService implements INodeTreeService {
 		if (StringUtil.isEmpty(path) || "/".equals(path)) {
 			throw new EcmException("不能移除根");
 		}
+		if (getFolder(path) == null) {
+			throw new EcmException("文件夹不存在：" + path);
+		}
 		while (path.endsWith("/")) {
 			path = path.substring(0, path.length() - 1);
 		}
@@ -77,6 +80,9 @@ public class NodeTreeService implements INodeTreeService {
 		int pos = path.lastIndexOf("/");
 		String code = path.substring(pos + 1, path.length());
 		path = path.substring(0, pos);
+		if(StringUtil.isEmpty(path)) {
+			path="/";
+		}
 		String cjql = String.format(
 				"select {'tuple':'*'} from tuple folders %s where {'tuple.path':'%s','tuple.code':'%s'}",
 				TFolder.class.getName(), path, code);
