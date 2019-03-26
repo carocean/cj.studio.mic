@@ -23,7 +23,7 @@ dependencies {
 	compile fileTree('src/cj/references')
 	compile group: 'cj.studio.gateway2', name: 'cj.studio.gateway.stub', version: ref_cj_studio_gateway_stub
 	compile group: 'cj.studio.backend.uc', name: 'cj.studio.backend.uc.stub', version: ref_cj_studio_backend_uc_stub
-	
+	compile project (':cj.studio.mic.ultimate')
 }
 task copyRefembeds(type: Copy) {
     into 'src/cj/refembeds'

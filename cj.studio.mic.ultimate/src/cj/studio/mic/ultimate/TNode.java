@@ -1,9 +1,9 @@
 package cj.studio.mic.ultimate;
 
 public class TNode {
-	String code;
-	String name;
-	String creator;
+	String uuid;
+	String title;
+	String desc;
 	String path;
 	long ctime;
 
@@ -11,13 +11,37 @@ public class TNode {
 
 	}
 
-	public TNode(String code, String path, String name, String creator, long ctime) {
-		this();
-		this.code = code;
-		this.name = name;
+	public TNode(String uuid, String title, String desc, String path) {
+		super();
+		this.uuid = uuid;
+		this.title = title;
+		this.desc = desc;
 		this.path = path;
-		this.creator = creator;
-		this.ctime = ctime;
+		this.ctime = System.currentTimeMillis();
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
 
 	public String getPath() {
@@ -28,30 +52,6 @@ public class TNode {
 		this.path = path;
 	}
 
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getCreator() {
-		return creator;
-	}
-
-	public void setCreator(String creator) {
-		this.creator = creator;
-	}
-
 	public long getCtime() {
 		return ctime;
 	}
@@ -59,4 +59,6 @@ public class TNode {
 	public void setCtime(long ctime) {
 		this.ctime = ctime;
 	}
+	
+	
 }

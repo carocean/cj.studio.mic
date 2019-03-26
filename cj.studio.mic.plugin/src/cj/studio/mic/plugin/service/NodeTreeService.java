@@ -95,15 +95,9 @@ public class NodeTreeService implements INodeTreeService {
 
 	@Override
 	public long getNodeCountOfFolder(String path) {
-		while (path.endsWith("/")) {
-			path = path.substring(0, path.length() - 1);
-		}
-		int pos = path.lastIndexOf("/");
-		String code = path.substring(pos + 1, path.length());
-		path = path.substring(0, pos);
 		String cjql = String.format(
-				"select {'tuple':'*'}.count() from tuple nodes %s where {'tuple.path':'%s','tuple.code':'%s'}",
-				TNode.class.getName(), path, code);
+				"select {'tuple':'*'}.count() from tuple nodes %s where {'tuple.path':'%s'}",
+				TNode.class.getName(), path);
 		IQuery<TNode> q = mic.createQuery(cjql);
 		return q.count();
 	}
@@ -120,13 +114,16 @@ public class NodeTreeService implements INodeTreeService {
 		}
 		return folders;
 	}
-
+	
 	@Override
 	public void addNode(TNode node) {
+		if(!node.getPath().endsWith("/")) {
+			node.setPath(node.getPath()+"/");
+		}
 		if (StringUtil.isEmpty(node.getPath())) {
 			throw new EcmException("缺少路径");
 		}
-		String fn = node.getPath() + "." + node.getCode();
+		String fn = node.getPath() + "." + node.getUuid();
 		if (getNode(fn) != null) {
 			throw new EcmException("已存在文件夹：" + fn);
 		}
@@ -136,6 +133,9 @@ public class NodeTreeService implements INodeTreeService {
 
 	@Override
 	public void updateNode(String path, TNode node) {
+		if(!path.endsWith("/")) {
+			path+="/";
+		}
 		if (StringUtil.isEmpty(node.getPath())) {
 			node.setPath(path);
 		}
@@ -155,12 +155,18 @@ public class NodeTreeService implements INodeTreeService {
 			throw new EcmException("不是节点全路径名");
 		}
 		String path = fn.substring(0, pos);
+		if(!path.endsWith("/")) {
+			path+="/";
+		}
 		String code = fn.substring(pos + 1, fn.length());
-		mic.deleteDocOne("nodes", String.format("{'tuple.path':'%s','tuple.code':'%s'}", path, code));
+		mic.deleteDocOne("nodes", String.format("{'tuple.path':'%s','tuple.uuid':'%s'}", path, code));
 	}
 
 	@Override
 	public List<TNode> listNodes(String path) {
+		if(!path.endsWith("/")) {
+			path+="/";
+		}
 		String cjql = String.format("select {'tuple':'*'} from tuple nodes %s where {'tuple.path':'%s'}",
 				TNode.class.getName(), path);
 		IQuery<TNode> q = mic.createQuery(cjql);
@@ -171,7 +177,7 @@ public class NodeTreeService implements INodeTreeService {
 		}
 		return nodes;
 	}
-
+	
 	@Override
 	public TNode getNode(String fn) {
 		int pos = fn.indexOf(".");
@@ -179,9 +185,12 @@ public class NodeTreeService implements INodeTreeService {
 			throw new EcmException("不是节点全路径名");
 		}
 		String path = fn.substring(0, pos);
+		if(!path.endsWith("/")) {
+			path+="/";
+		}
 		String code = fn.substring(pos + 1, fn.length());
 		String cjql = String.format(
-				"select {'tuple':'*'} from tuple nodes %s where {'tuple.path':'%s','tuple.code':'%s'}",
+				"select {'tuple':'*'} from tuple nodes %s where {'tuple.path':'%s','tuple.uuid':'%s'}",
 				TNode.class.getName(), path, code);
 		IQuery<TNode> q = mic.createQuery(cjql);
 		IDocument<TNode> doc = q.getSingleResult();

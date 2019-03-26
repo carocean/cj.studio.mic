@@ -92,34 +92,23 @@ function printServices(parent,li,nodeTree,creator){
 		li.attr('title',folder.code+'');
 		li.select('.obj-code').html(folder.name+'');
 		
-//		printMethods(folderCode,service.code,li,ptStub,creator,rcStub);
+		printNodes(folder.getFullName(),li,nodeTree,creator);
 		
 		objsE.appendChild(li);
 	}
 }
-function printMethods(folderCode,servicecode,li,ptStub,creator,rcStub){
+function printNodes(path,li,nodeTree,creator){
 	var methodUL=li.select('.pr-methods').first();
 	var methodLi=methodUL.select('>.pr-method').first().clone();
 	methodUL.empty();
-	var methods=ptStub.getMethods(folderCode+'.'+servicecode);
-	for(var i=0;i<methods.length;i++){
-		var m=methods.get(i);
-		var headline=rcStub.getMyRequestHeadline(m.id,creator);
-		var netpt=rcStub.getMyRequestNetprotocol(m.id,creator);
+	var nodes=nodeTree.listNodes(path);
+	for(var i=0;i<nodes.length;i++){
+		var m=nodes.get(i);
 		var li=methodLi.clone();
-		li.attr('code',m.code+'');
-		var ptcol='';
-		if(netpt!=null){
-			ptcol=netpt.protocol;
-		}
-		li.attr('netprotocol',ptcol);
-		if(headline!=null){
-			li.select('.method-command').html(headline.cmd+'');
-		}
-		li.attr('folder',m.folder+'');
-		li.attr('service',m.service+'');
-		li.attr('title',m.name+'');
-		li.select('.method-code').html(m.code+'');
+		li.attr('uuid',m.uuid+'');
+		li.attr('path',m.path+'');
+		li.attr('title',m.desc+'');
+		li.select('.method-code').html(m.title+'');
 		methodUL.appendChild(li);
 	}
 }

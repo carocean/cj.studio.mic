@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="src" path="/cj.studio.mic.ultimate"/>
 	<classpathentry exported="true" kind="lib" path="/Users/caroceanjofers/.gradle/caches/modules-2/files-2.1/cj.studio.ecm/cj.ultimate/1.0.0/384f23bfce0492c0fa7ba7bd2a72f130f2a488b/cj.ultimate-1.0.0.jar" sourcepath="/Users/caroceanjofers/.gradle/caches/modules-2/files-2.1/cj.studio.ecm/cj.ultimate/1.0.0/84d0f2c02a31652aa857fdf003eeb0867e1d099b/cj.ultimate-1.0.0-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="/Users/caroceanjofers/.gradle/caches/modules-2/files-2.1/cj.studio.ecm/cj.studio.ecm.corelib/1.0.0/1996c0c0bcaf5bb4c717a6e1ec49eb414d20b722/cj.studio.ecm.corelib-1.0.0.jar" sourcepath="/Users/caroceanjofers/.gradle/caches/modules-2/files-2.1/cj.studio.ecm/cj.studio.ecm.corelib/1.0.0/7c51757ff2b6ade1f338b66825227ad1e4ffcebb/cj.studio.ecm.corelib-1.0.0-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="/Users/caroceanjofers/.gradle/caches/modules-2/files-2.1/cj.studio.gateway2/cj.studio.ecm.net/1.0.0/9d037cd551e1648694a2b9a22610bf4069b1a0b/cj.studio.ecm.net-1.0.0.jar" sourcepath="/Users/caroceanjofers/.gradle/caches/modules-2/files-2.1/cj.studio.gateway2/cj.studio.ecm.net/1.0.0/b8bc5cd9729817cfc84eddb22563e52bca2b6848/cj.studio.ecm.net-1.0.0-sources.jar"/>
@@ -27,6 +28,7 @@
 	<classpathentry exported="true" kind="lib" path="/Users/caroceanjofers/studio/github/cj.studio.mic/global/runtime/barchart-http-server-1.1.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="/Users/caroceanjofers/studio/github/cj.studio.mic/global/runtime/barchart-udt-core-2.3.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="/Users/caroceanjofers/studio/github/cj.studio.mic/cj.studio.mic.program/src/cj/refembeds/cj.studio.gateway.stub-1.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Users/caroceanjofers/studio/github/cj.studio.mic/cj.studio.mic.program/src/cj/references/cj.studio.mic.ultimate-1.0.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="/Users/caroceanjofers/studio/github/cj.studio.mic/cj.studio.mic.program/src/cj/references/cj.studio.backend.uc.stub-1.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

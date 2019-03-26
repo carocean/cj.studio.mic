@@ -6,5 +6,13 @@
 		"props": {
 			"wsPath":"/mic"
 		}
+	},
+	{
+		"name": "tcpSite",
+		"protocol": "tcp",
+		"host": "localhost:7080",
+		"props": {
+			"OnChannelEvent-Notify-Dests":"mic"
+		}
 	}
 ]
