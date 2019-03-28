@@ -19,7 +19,7 @@
 <script type="text/javascript" src="js/root-panel.js"></script>
 <script type="text/javascript" src="js/folder-panel.js"></script>
 <script type="text/javascript" src="js/child-panel.js"></script>
-<script type="text/javascript" src="js/request-panel.js"></script>
+<script type="text/javascript" src="js/console.js"></script>
 <script type="text/javascript" src="js/send.js"></script>
 </head>
 <body>
@@ -56,9 +56,25 @@
 					<div class="layout-main">
 						<div class="column-context">
 							<ul class="main-column-lets">
-								<li class="portlet" position><span label>位置</span>://<span
-									folder>目录</span>/<span service>子目录</span>/<span method>节点</span></li>
-								<li class="portlet">
+								<li class="portlet" position><img alt=""
+									src="img/stoped.svg">&nbsp;&nbsp;<span path>子目录</span><span
+									title>节点</span></li>
+								<li class="portlet" console>
+									<ul id="console_result">
+										<li class="welcome">******************************************</li>
+										<li class="welcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎</li>
+										<li class="welcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;输入man命令查看帮助</li>
+										<li class="welcome">******************************************</li>
+										<li class="cmd_pair" style="display: none;">
+											<div class="cmd_line"><span class="prefix">$</span><span class="cmd_text"></span></div>
+											<div class="cmd_result"></div>
+										</li>
+									</ul>
+									<div class="input_region">
+										<span class="prefix">$</span>&nbsp;<input type="text"
+											id='input_cmd' placeholder="输入命令...">
+										<div id="input_result"></div>
+									</div>
 								</li>
 							</ul>
 							<div class="panel-tools on-mask"></div>

@@ -1,6 +1,7 @@
 package cj.studio.mic.ultimate;
 
 import java.util.List;
+import java.util.Map;
 
 public interface INodeTreeService {
 	void addFolder(TFolder folder);
@@ -25,4 +26,9 @@ public interface INodeTreeService {
 
 	TNode getNode(String fullName);
 
+	void online(TNode n,String inputName);
+
+	Map<String, Object> offline(String inputName);
+
+	boolean isOnline(TNode n);
 }

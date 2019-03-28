@@ -19,7 +19,6 @@ public class TNode {
 		this.path = path;
 		this.ctime = System.currentTimeMillis();
 	}
-
 	public String getUuid() {
 		return uuid;
 	}

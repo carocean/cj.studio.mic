@@ -4,7 +4,8 @@
 		"protocol": "http",
 		"host": "localhost:7070",
 		"props": {
-			"wsPath":"/mic"
+			"wsPath":"/mic",
+			"OnChannelEvent-Notify-Dests":"mic"
 		}
 	},
 	{

@@ -69,8 +69,8 @@ function printProjectTree(f,doc,nodeTree,creator){
 		var li=cli.clone();
 		li.attr('code',folder.code+'');
 		li.attr('path',folder.path+'');
-		li.attr('title',folder.code+'');
-		li.select('.folder-code').html(folder.name+'');
+		li.attr('title',folder.name+'');
+		li.select('.folder-code').html(folder.code+'');
 //		var count=nodeTree.getMethodCountOfFolder(folder.code);
 //		li.select('.folder-count>span').html(count);
 		
@@ -89,8 +89,8 @@ function printServices(parent,li,nodeTree,creator){
 		var li=cli.clone();
 		li.attr('code',folder.code+'');
 		li.attr('path',folder.path+'');
-		li.attr('title',folder.code+'');
-		li.select('.obj-code').html(folder.name+'');
+		li.attr('title',folder.name+'');
+		li.select('.obj-code').html(folder.code+'');
 		
 		printNodes(folder.getFullName(),li,nodeTree,creator);
 		
@@ -108,6 +108,11 @@ function printNodes(path,li,nodeTree,creator){
 		li.attr('uuid',m.uuid+'');
 		li.attr('path',m.path+'');
 		li.attr('title',m.desc+'');
+		if(nodeTree.isOnline(m)){
+			li.select('.method-command').attr('src','img/running.svg');
+		}else{
+			li.select('.method-command').attr('src','img/stoped.svg');
+		}
 		li.select('.method-code').html(m.title+'');
 		methodUL.appendChild(li);
 	}

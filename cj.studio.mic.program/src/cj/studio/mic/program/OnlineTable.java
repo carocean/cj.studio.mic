@@ -1,7 +1,7 @@
 package cj.studio.mic.program;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import cj.studio.ecm.annotation.CjService;
@@ -11,6 +11,10 @@ public class OnlineTable implements IOnlineTable {
 	Map<String, String> table;
 	public OnlineTable() {
 		this.table=new ConcurrentHashMap<>();
+	}
+	@Override
+	public Set<String> enumUser() {
+		return table.keySet();
 	}
 	@Override
 	public void on(String user, String pipelineName) {

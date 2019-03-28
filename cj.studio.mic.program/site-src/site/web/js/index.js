@@ -139,11 +139,12 @@ $(document).ready(function(){
 		$(this).addClass('selected');
 		var pos=$('.container > .workbench > .desktop > .column .layout-main .column-context > .main-column-lets > .portlet[position]');
 		var li=$(this).parents('li.pr-method');
-		pos.find('span[folder]').html(li.attr('folder'));
-		pos.find('span[service]').html(li.attr('service'));
-		pos.find('span[method]').html(li.attr('code'));
-		pos.attr('mid',li.attr('id'));
-		
+		pos.find('span[path]').html(li.attr('path'));
+		pos.find('span[title]').html(li.find('.method-code').html());
+		pos.find('span[title]').attr('title',li.attr('title'));
+		pos.attr('path',li.attr('path'));
+		pos.attr('uuid',li.attr('uuid'));
+		pos.find('img').attr('src',li.find('.method-command').attr('src'));
 	});
 	var tabPanels=$('.portlet .settings>.tab-panels');
 	var tabs=$('.portlet .settings > .tabs');

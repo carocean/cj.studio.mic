@@ -1,7 +1,9 @@
 package cj.studio.mic.plugin.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.bson.Document;
 
@@ -44,7 +46,8 @@ public class NodeTreeService implements INodeTreeService {
 			throw new EcmException("不能移动文件夹");
 		}
 		folder.setCtime(System.currentTimeMillis());
-		Document filter = Document.parse(String.format("{'tuple.path':'%s','tuple.code':'%s'}", path,folder.getCode()));
+		Document filter = Document
+				.parse(String.format("{'tuple.path':'%s','tuple.code':'%s'}", path, folder.getCode()));
 		Document update = Document.parse(String.format("{$set:{'tuple':%s}}", new Gson().toJson(folder)));
 		mic.updateDocOne("folders", filter, update);
 	}
@@ -63,8 +66,8 @@ public class NodeTreeService implements INodeTreeService {
 		int pos = path.lastIndexOf("/");
 		String code = path.substring(pos + 1, path.length());
 		path = path.substring(0, pos);
-		if(StringUtil.isEmpty(path)) {
-			path="/";
+		if (StringUtil.isEmpty(path)) {
+			path = "/";
 		}
 		mic.deleteDocOne("folders", String.format("{'tuple.path':'%s','tuple.code':'%s'}", path, code));
 	}
@@ -80,8 +83,8 @@ public class NodeTreeService implements INodeTreeService {
 		int pos = path.lastIndexOf("/");
 		String code = path.substring(pos + 1, path.length());
 		path = path.substring(0, pos);
-		if(StringUtil.isEmpty(path)) {
-			path="/";
+		if (StringUtil.isEmpty(path)) {
+			path = "/";
 		}
 		String cjql = String.format(
 				"select {'tuple':'*'} from tuple folders %s where {'tuple.path':'%s','tuple.code':'%s'}",
@@ -95,8 +98,7 @@ public class NodeTreeService implements INodeTreeService {
 
 	@Override
 	public long getNodeCountOfFolder(String path) {
-		String cjql = String.format(
-				"select {'tuple':'*'}.count() from tuple nodes %s where {'tuple.path':'%s'}",
+		String cjql = String.format("select {'tuple':'*'}.count() from tuple nodes %s where {'tuple.path':'%s'}",
 				TNode.class.getName(), path);
 		IQuery<TNode> q = mic.createQuery(cjql);
 		return q.count();
@@ -114,11 +116,11 @@ public class NodeTreeService implements INodeTreeService {
 		}
 		return folders;
 	}
-	
+
 	@Override
 	public void addNode(TNode node) {
-		if(!node.getPath().endsWith("/")) {
-			node.setPath(node.getPath()+"/");
+		if (!node.getPath().endsWith("/")) {
+			node.setPath(node.getPath() + "/");
 		}
 		if (StringUtil.isEmpty(node.getPath())) {
 			throw new EcmException("缺少路径");
@@ -133,8 +135,8 @@ public class NodeTreeService implements INodeTreeService {
 
 	@Override
 	public void updateNode(String path, TNode node) {
-		if(!path.endsWith("/")) {
-			path+="/";
+		if (!path.endsWith("/")) {
+			path += "/";
 		}
 		if (StringUtil.isEmpty(node.getPath())) {
 			node.setPath(path);
@@ -155,8 +157,8 @@ public class NodeTreeService implements INodeTreeService {
 			throw new EcmException("不是节点全路径名");
 		}
 		String path = fn.substring(0, pos);
-		if(!path.endsWith("/")) {
-			path+="/";
+		if (!path.endsWith("/")) {
+			path += "/";
 		}
 		String code = fn.substring(pos + 1, fn.length());
 		mic.deleteDocOne("nodes", String.format("{'tuple.path':'%s','tuple.uuid':'%s'}", path, code));
@@ -164,8 +166,8 @@ public class NodeTreeService implements INodeTreeService {
 
 	@Override
 	public List<TNode> listNodes(String path) {
-		if(!path.endsWith("/")) {
-			path+="/";
+		if (!path.endsWith("/")) {
+			path += "/";
 		}
 		String cjql = String.format("select {'tuple':'*'} from tuple nodes %s where {'tuple.path':'%s'}",
 				TNode.class.getName(), path);
@@ -177,7 +179,7 @@ public class NodeTreeService implements INodeTreeService {
 		}
 		return nodes;
 	}
-	
+
 	@Override
 	public TNode getNode(String fn) {
 		int pos = fn.indexOf(".");
@@ -185,8 +187,8 @@ public class NodeTreeService implements INodeTreeService {
 			throw new EcmException("不是节点全路径名");
 		}
 		String path = fn.substring(0, pos);
-		if(!path.endsWith("/")) {
-			path+="/";
+		if (!path.endsWith("/")) {
+			path += "/";
 		}
 		String code = fn.substring(pos + 1, fn.length());
 		String cjql = String.format(
@@ -199,4 +201,51 @@ public class NodeTreeService implements INodeTreeService {
 		return doc.tuple();
 	}
 
+	@Override
+	public void online(TNode n, String channel) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("path", n.getPath());
+		map.put("uuid", n.getUuid());
+		map.put("channel", channel);
+		map.put("status", "online");
+		map.put("ctime", System.currentTimeMillis());
+		mic.saveDoc("event.onlines", new TupleDocument<>(map));
+	}
+
+	@Override
+	public Map<String, Object> offline(String channel) {
+		Map<String, Object> online = getOnline(channel);
+		if (online == null)
+			return null;
+		Map<String, Object> map = new HashMap<>();
+		map.put("path", online.get("path"));
+		map.put("uuid", online.get("uuid"));
+		map.put("status", "offline");
+		map.put("ctime", System.currentTimeMillis());
+		mic.saveDoc("event.onlines", new TupleDocument<>(map));
+		return online;
+	}
+
+	private Map<String, Object> getOnline(String channel) {
+		String cjql = String.format(
+				"select {'tuple':'*'}.sort({'tuple.ctime':-1}).limit(1).skip(0) from tuple event.onlines %s where {'tuple.channel':'%s'}",
+				HashMap.class.getName(), channel);
+		IQuery<HashMap<String, Object>> q = mic.createQuery(cjql);
+		IDocument<HashMap<String, Object>> doc = q.getSingleResult();
+		if (doc == null)
+			return null;
+		return doc.tuple();
+	}
+
+	@Override
+	public boolean isOnline(TNode n) {
+		String cjql = String.format(
+				"select {'tuple':'*'}.sort({'tuple.ctime':-1}).limit(1).skip(0) from tuple event.onlines %s where {'tuple.path':'%s','tuple.uuid':'%s'}",
+				HashMap.class.getName(), n.getPath(), n.getUuid());
+		IQuery<HashMap<String, Object>> q = mic.createQuery(cjql);
+		IDocument<HashMap<String, Object>> doc = q.getSingleResult();
+		if (doc == null)
+			return false;
+		return "online".equals(doc.tuple().get("status"));
+	}
 }

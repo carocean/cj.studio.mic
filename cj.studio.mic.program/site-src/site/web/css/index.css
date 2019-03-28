@@ -511,12 +511,40 @@
 .container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet[position]{
 	min-height: auto;
 }
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet[position]>img{
+	width:16px;
+	height: 16px;
+	vertical-align: middle;
+}
 .container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet[position]>span[label]{
 	color: #555;
 	font-weight: bold;
+	vertical-align: middle;
 }
 .container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet[position]>span[name]{
 	color: #777;
+}
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet[console]{
+	padding: 0 10px;
+	font-size: 12px;
+}
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet[console] .welcome{
+	color: #999;
+}
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet[console]>div{
+	display: table;
+}
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet[console]>div>span.prefix{
+	display: table-cell;
+	width:10px;
+}
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet[console]>div>input{
+	padding: 10px 0;
+	border: none;
+	display: table-cell;
+}
+#console_result>li{
+	padding: 2px 0;
 }
 .container>.workbench>.desktop>.desktop-top .top-select{
 	display: none;
