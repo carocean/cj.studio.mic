@@ -71,8 +71,8 @@ function printProjectTree(f,doc,nodeTree,creator){
 		li.attr('path',folder.path+'');
 		li.attr('title',folder.name+'');
 		li.select('.folder-code').html(folder.code+'');
-//		var count=nodeTree.getMethodCountOfFolder(folder.code);
-//		li.select('.folder-count>span').html(count);
+		var count=nodeTree.getNodeCountOfFolder(folder.path+folder.code);
+		li.select('.folder-count>span').html(count);
 		
 		printServices(folder.getFullName(),li,nodeTree,creator);
 		

@@ -14,6 +14,7 @@
 <script type="text/javascript" src="js/jquery/jquery-2.1.4.js"></script>
 <script type="text/javascript" src="js/socket.io.js"></script>
 <script type="text/javascript" src="js/date.js"></script>
+<script type="text/javascript" src="js/cookie.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/ws-event.js"></script>
 <script type="text/javascript" src="js/root-panel.js"></script>
@@ -66,14 +67,17 @@
 										<li class="welcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;输入man命令查看帮助</li>
 										<li class="welcome">******************************************</li>
 										<li class="cmd_pair" style="display: none;">
-											<div class="cmd_line"><span class="prefix">$</span><span class="cmd_text"></span></div>
-											<div class="cmd_result"></div>
+											<div class="cmd_line">
+												<span class="prefix">$</span><span class="cmd_text"></span>
+											</div>
+											<div class="cmd_result">
+												&nbsp;&nbsp;<span class="response"></span>
+											</div>
 										</li>
 									</ul>
 									<div class="input_region">
 										<span class="prefix">$</span>&nbsp;<input type="text"
 											id='input_cmd' placeholder="输入命令...">
-										<div id="input_result"></div>
 									</div>
 								</li>
 							</ul>
@@ -143,6 +147,14 @@
 								</ul>
 							</div>
 							<div class="pr-tree">
+								<ul class="pr-template" style="display: none;">
+													<li class="pr-method"><div class="method-main">
+															<img class="method-command" src="img/stoped.svg">
+															<ul class="method-title">
+																<li class="method-code" title="即时通讯网关">cj.studio.imc.be.im</li>
+															</ul>
+														</div> <span class="popup-arrow" arrow="method">&gt;&nbsp;</span></li>
+												</ul>
 								<div class="popup-template">
 									<ul class="popup-ul folder">
 										<li class="popup-tbar popup-bar">

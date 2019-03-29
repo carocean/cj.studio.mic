@@ -14,7 +14,8 @@ $(document).ready(function(){
 				mask.show();
 			}
 			var template=$(this).parents('ul').siblings('.popup-template');
-			$.get('./views/folder-editor.service',{},function(data){
+			var cjtoken=getCookie('cjtoken');
+			$.get('./views/folder-editor.service',{cjtoken:cjtoken},function(data){
 				var ul=template.find('.popup-rbar-table').first();
 				var cli=ul.find('>li').first().clone();
 				var folders=$.parseJSON(data);

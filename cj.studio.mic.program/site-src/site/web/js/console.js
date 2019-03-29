@@ -6,12 +6,35 @@ $(document).ready(function(){
 			return;
 		}
 		var val=$(this).val();
-		var input_result=$('#input_result').html();
 		$(this).val('');
 		var li=result.find('>li.cmd_pair').first().clone();
 		li.removeAttr('style');
 		li.find('.cmd_line .cmd_text').html(val);
-		li.find('.cmd_result').html(input_result);
 		result.append(li);
+		
+		if(!connector.isopen){
+			alert('连接未打开')
+			return;
+		}
+		
+		var pos=$('.container > .workbench > .desktop > .column .layout-main .column-context > .main-column-lets > .portlet[position]');
+		var path=pos.attr('path');
+		var uuid=pos.attr('uuid');
+		
+		var cjtoken=getCookie('cjtoken');
+		var frame={
+				heads:{
+					url:'/mic/views/cmd.service',
+					command:'exe',
+					protocol:'ws/1.0'
+				},
+				params:{
+					cjtoken:cjtoken,
+					uuid:uuid,
+					path:path,
+					cmdline:val
+				}
+			};
+		connector.ws.sendFrame(frame);//发送验证
 	})
 });

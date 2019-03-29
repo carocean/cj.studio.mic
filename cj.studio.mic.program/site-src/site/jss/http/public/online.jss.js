@@ -33,7 +33,7 @@ var SocketContants=Java.type('cj.studio.gateway.socket.util.SocketContants');
 var ITokenStub=Java.type('cj.studio.backend.uc.stub.ITokenStub');
 
 exports.flow = function(f,c,ctx) {
-	var token=f.parameter('token');
+	var token=f.parameter('cjtoken');
 	var selector=imports.head.services.selector;
 	var pipeline_name=f.head(SocketContants.__frame_fromPipelineName);
 	var out=selector.select(pipeline_name);

@@ -14,6 +14,8 @@ import cj.lns.chip.sos.cube.framework.TupleDocument;
 import cj.studio.ecm.EcmException;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.annotation.CjServiceRef;
+import cj.studio.ecm.net.CircuitException;
+import cj.studio.mic.ultimate.INodeOnRemoveEvent;
 import cj.studio.mic.ultimate.INodeTreeService;
 import cj.studio.mic.ultimate.TFolder;
 import cj.studio.mic.ultimate.TNode;
@@ -98,7 +100,8 @@ public class NodeTreeService implements INodeTreeService {
 
 	@Override
 	public long getNodeCountOfFolder(String path) {
-		String cjql = String.format("select {'tuple':'*'}.count() from tuple nodes %s where {'tuple.path':'%s'}",
+		String cjql = String.format(
+				"select {'tuple':'*'}.count() from tuple nodes %s where {'tuple.path':{$regex:'^%s',$options:'m'}}",
 				TNode.class.getName(), path);
 		IQuery<TNode> q = mic.createQuery(cjql);
 		return q.count();
@@ -118,7 +121,7 @@ public class NodeTreeService implements INodeTreeService {
 	}
 
 	@Override
-	public void addNode(TNode node) {
+	public void addNode(TNode node, INodeOnRemoveEvent event) {
 		if (!node.getPath().endsWith("/")) {
 			node.setPath(node.getPath() + "/");
 		}
@@ -128,6 +131,17 @@ public class NodeTreeService implements INodeTreeService {
 		String fn = node.getPath() + "." + node.getUuid();
 		if (getNode(fn) != null) {
 			throw new EcmException("已存在文件夹：" + fn);
+		}
+		TNode exists = getNodeByUUID(node.getUuid());
+		if (exists != null) {
+			removeNodeByUUID(node.getUuid());
+			if (event != null) {
+				try {
+					event.onRemoved(node.getUuid());
+				} catch (CircuitException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		node.setCtime(System.currentTimeMillis());
 		mic.saveDoc("nodes", new TupleDocument<>(node));
@@ -165,6 +179,11 @@ public class NodeTreeService implements INodeTreeService {
 	}
 
 	@Override
+	public void removeNodeByUUID(String uuid) {
+		mic.deleteDocOne("nodes", String.format("{'tuple.uuid':'%s'}", uuid));
+	}
+
+	@Override
 	public List<TNode> listNodes(String path) {
 		if (!path.endsWith("/")) {
 			path += "/";
@@ -194,6 +213,17 @@ public class NodeTreeService implements INodeTreeService {
 		String cjql = String.format(
 				"select {'tuple':'*'} from tuple nodes %s where {'tuple.path':'%s','tuple.uuid':'%s'}",
 				TNode.class.getName(), path, code);
+		IQuery<TNode> q = mic.createQuery(cjql);
+		IDocument<TNode> doc = q.getSingleResult();
+		if (doc == null)
+			return null;
+		return doc.tuple();
+	}
+
+	@Override
+	public TNode getNodeByUUID(String uuid) {
+		String cjql = String.format("select {'tuple':'*'} from tuple nodes %s where {'tuple.uuid':'%s'}",
+				TNode.class.getName(), uuid);
 		IQuery<TNode> q = mic.createQuery(cjql);
 		IDocument<TNode> doc = q.getSingleResult();
 		if (doc == null)
@@ -247,5 +277,17 @@ public class NodeTreeService implements INodeTreeService {
 		if (doc == null)
 			return false;
 		return "online".equals(doc.tuple().get("status"));
+	}
+
+	@Override
+	public Map<String, Object> getOnlineEntry(TNode n) {
+		String cjql = String.format(
+				"select {'tuple':'*'}.sort({'tuple.ctime':-1}).limit(1).skip(0) from tuple event.onlines %s where {'tuple.path':'%s','tuple.uuid':'%s'}",
+				HashMap.class.getName(), n.getPath(), n.getUuid());
+		IQuery<HashMap<String, Object>> q = mic.createQuery(cjql);
+		IDocument<HashMap<String, Object>> doc = q.getSingleResult();
+		if (doc == null)
+			return null;
+		return doc.tuple();
 	}
 }

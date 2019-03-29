@@ -16,7 +16,7 @@ public interface INodeTreeService {
 
 	List<TFolder> listChildFolders(String path);
 
-	void addNode(TNode node);
+	void addNode(TNode node,INodeOnRemoveEvent event);
 
 	void updateNode(String path, TNode node);
 
@@ -31,4 +31,10 @@ public interface INodeTreeService {
 	Map<String, Object> offline(String inputName);
 
 	boolean isOnline(TNode n);
+
+	Map<String, Object> getOnlineEntry(TNode n);
+
+	TNode getNodeByUUID(String uuid);
+
+	void removeNodeByUUID(String uuid);
 }

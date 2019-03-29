@@ -5,18 +5,20 @@ public class TNode {
 	String title;
 	String desc;
 	String path;
+	String miclient;
 	long ctime;
 
 	public TNode() {
 
 	}
 
-	public TNode(String uuid, String title, String desc, String path) {
+	public TNode(String uuid, String title, String desc, String path,String miclient) {
 		super();
 		this.uuid = uuid;
 		this.title = title;
 		this.desc = desc;
 		this.path = path;
+		this.miclient=miclient;
 		this.ctime = System.currentTimeMillis();
 	}
 	public String getUuid() {
@@ -26,7 +28,12 @@ public class TNode {
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
-
+	public String getMiclient() {
+		return miclient;
+	}
+	public void setMiclient(String miclient) {
+		this.miclient = miclient;
+	}
 	public String getTitle() {
 		return title;
 	}

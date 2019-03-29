@@ -238,6 +238,9 @@ $.ws = {
 					alert('不是侦格式');
 					return;
 				}
+				if(typeof frameObj.params.cjtoken=='undefined'||frameObj.params.cjtoken==null){
+					frameObj.params.cjtoken=getCookie('cjtoken');
+				}
 				var frameText='';
 				for(var head in frameObj.heads){
 					if(typeof frameObj.heads[head]=='undefined')continue;
