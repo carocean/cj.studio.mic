@@ -57,7 +57,7 @@ exports.flow = function(f,c,ctx) {
 		return;
 	}
 	var channel=entry.channel;
-	sendcmd(channel,cmdline,n.miclient);
+	sendcmd(channel,cmdline,n.miclient,user);
 }
 function sendResponseToUser(user,path,uuid,text,path,uuid,cmdline){
 	if(text==null){
@@ -84,13 +84,14 @@ function sendResponseToUser(user,path,uuid,text,path,uuid,cmdline){
 	output.send(f, c);
 	output.releasePipeline();
 }
-function sendcmd(channel,cmdline,micient){
+function sendcmd(channel,cmdline,micient,user){
 	var selector=imports.head.services.selector;
 	var output=selector.select(channel);
 	var input = new MemoryInputChannel();
 	var f = new Frame(input, String.format("exe /%s/cmdline.service mic/1.0",micient));
 	f.content().accept(new MemoryContentReciever());
 	f.parameter('cmdline',cmdline);
+	f.parameter('user',user);
 	input.begin(f);
 	var b=JavaUtil.createByteArray(0);
 	input.done(b, 0, b.length);
