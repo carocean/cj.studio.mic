@@ -146,6 +146,8 @@ $(document).ready(function(){
 		pos.attr('path',li.attr('path'));
 		pos.attr('uuid',li.attr('uuid'));
 		pos.find('img').attr('src',li.find('.method-command').attr('src'));
+		var inputCmd=$('#input_cmd');
+		inputCmd.focus();
 	});
 	var tabPanels=$('.portlet .settings>.tab-panels');
 	var tabs=$('.portlet .settings > .tabs');
