@@ -9,6 +9,7 @@ import cj.studio.ecm.annotation.CjService;
 @CjService(name="online")
 public class OnlineTable implements IOnlineTable {
 	Map<String, String> table;
+	
 	public OnlineTable() {
 		this.table=new ConcurrentHashMap<>();
 	}

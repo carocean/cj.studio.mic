@@ -10,10 +10,7 @@ import cj.studio.gateway.socket.app.ProgramAdapterType;
 public class WebsiteProgram extends GatewayAppSiteProgram {
 
 	@Override
-	protected void onstart(Destination dest, String home, ProgramAdapterType type)
-			throws CircuitException {
-		
+	protected void onstart(Destination dest, String home, ProgramAdapterType type) throws CircuitException {
 	}
-
 
 }

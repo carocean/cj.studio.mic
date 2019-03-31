@@ -41,6 +41,7 @@ $(document).ready(function(){
 				if(frame.heads.url.indexOf('/node/response.service')>-1){
 					var responseText=frame.content.response;
 					$('#console_result > li.cmd_pair:last-child>.cmd_result>.response').html(responseText);
+					$('html,body').scrollTop($('html,body')[0].scrollHeight);
 					return;
 				}
 				if(frame.heads.url.indexOf('/node/onremoved.service')>-1){
@@ -49,6 +50,22 @@ $(document).ready(function(){
 					var lets=$('.container > .workbench > .desktop > .column .layout-main .column-context > .main-column-lets');
 					if(lets.find('.portlet[position][uuid=\"'+frame.params.uuid+'\"]').length>0){
 						lets.hide();
+					}
+					return;
+				}
+				if(frame.heads.url.indexOf('/node/onCDConsole.service')>-1){
+					var consoleName=frame.params.consoleName;
+					if('$'==consoleName){
+						return;
+					}
+					$('.container > .workbench > .desktop > .column .layout-main .column-context > .main-column-lets > .portlet[console] > div > span.prefix_val').html(consoleName);
+					$('.container > .workbench > .desktop > .column .layout-main .column-context > .main-column-lets > .portlet[console] > div > span.prefix_val').attr('style','display:table-cell;');
+					return;
+				}
+				if(frame.heads.url.indexOf('/node/onByeConsole.service')>-1){
+					var consoleName=frame.params.consoleName;
+					if('$'==consoleName){
+						$('.container > .workbench > .desktop > .column .layout-main .column-context > .main-column-lets > .portlet[console] > div > span.prefix_val').hide();
 					}
 					return;
 				}

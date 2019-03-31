@@ -13,7 +13,8 @@
 	 		name:"test..."
 	},
  	services:{
- 		nodeTree:'micplugin.ntService'
+ 		nodeTree:'micplugin.ntService',
+ 		userConsoleSession:'micplugin.userConsoleSession'
  	}
  ]>
  <![desc:{
@@ -33,6 +34,7 @@ exports.flow = function(f,c,ctx) {
 	var doc = ctx.html("/index.html", "utf-8");
 	var creator=f.session().attribute('uc.principals');
 	var nodeTree=imports.head.services.nodeTree;
+	var userConsoleSession=imports.head.services.userConsoleSession;
 	if('true'==f.parameter('onlyPrintPt')){
 		printProjectTree(f,doc,nodeTree,creator);
 		var tree=doc.select('.pr-tree').first();
@@ -41,7 +43,15 @@ exports.flow = function(f,c,ctx) {
 	}
 	printWelcome(doc,f);
 	printProjectTree(f,doc,nodeTree,creator);
+	printUserConsoleSession(doc,userConsoleSession,creator);
 	c.content().writeBytes(doc.toString().getBytes());
+}
+function printUserConsoleSession(doc,userConsoleSession,user){
+	var consoleName=userConsoleSession.getCurrentConsoleName(user);
+	doc.select('.input_region>.prefix_val').html(consoleName);
+	if('$'!=consoleName){
+		doc.select('.input_region>.prefix_val').attr('style','display:table-cell;');
+	}
 }
 function printWelcome(doc,f){
 	var connLabel=doc.select('.container > .workbench > .header > .topbar > .items>li[conn]');
