@@ -36,4 +36,4 @@
 
 ![主页面](https://github.com/carocean/cj.studio.mic/blob/master/documents/img/mic.png)
 
-![mic图2](https://github.com/carocean/cj.studio.mic/blob/master/documents/img/mic.png)
+![mic图2](https://github.com/carocean/cj.studio.mic/blob/master/documents/img/mic2.png)
