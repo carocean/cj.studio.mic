@@ -80,7 +80,7 @@ function printProjectTree(f,doc,nodeTree,creator){
 		li.attr('code',folder.code+'');
 		li.attr('path',folder.path+'');
 		li.attr('title',folder.name+'');
-		li.select('.folder-code').html(folder.code+'');
+		li.select('.folder-code').html(folder.code+'['+folder.name+']');
 		var count=nodeTree.getNodeCountOfFolder(folder.path+folder.code);
 		li.select('.folder-count>span').html(count);
 		
@@ -100,7 +100,7 @@ function printServices(parent,li,nodeTree,creator){
 		li.attr('code',folder.code+'');
 		li.attr('path',folder.path+'');
 		li.attr('title',folder.name+'');
-		li.select('.obj-code').html(folder.code+'');
+		li.select('.obj-code').html(folder.code+'['+folder.name+']');
 		
 		printNodes(folder.getFullName(),li,nodeTree,creator);
 		

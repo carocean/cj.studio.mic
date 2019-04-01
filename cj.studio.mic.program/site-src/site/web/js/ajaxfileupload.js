@@ -132,7 +132,7 @@ $.extend({
     },
     uploadHttpData: function (r, type) {        var data = !type;
         data = type == "xml" || data ? r.responseXML : r.responseText;        // If the type is "script", eval it in global context
-        if(data.indexOf('<embed')>-1){
+        if(typeof data=='string'&&data.indexOf('<embed')>-1){
         	if(data.indexOf('xunlei_com_thunder')>-1){
         		alert('迅雷插件，拦截返回数据，操它大爷，卸载了吧，不安全!');
         	}else{

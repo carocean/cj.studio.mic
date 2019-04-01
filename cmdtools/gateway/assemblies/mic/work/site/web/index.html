@@ -13,6 +13,7 @@
 
 <script type="text/javascript" src="js/jquery/jquery-2.1.4.js"></script>
 <script type="text/javascript" src="js/socket.io.js"></script>
+<script type="text/javascript" src="js/ajaxfileupload.js"></script>
 <script type="text/javascript" src="js/date.js"></script>
 <script type="text/javascript" src="js/cookie.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
@@ -59,7 +60,9 @@
 							<ul class="main-column-lets">
 								<li class="portlet" position><img alt=""
 									src="img/stoped.svg">&nbsp;&nbsp;<span path>子目录</span><span
-									title>节点</span></li>
+									title>节点</span><input type="file" id="upload_file"
+									name="upload_file" style="display: none;"
+									accept="application/x-java-archive" /></li>
 								<li class="portlet" console>
 									<ul id="console_result">
 										<li class="welcome">******************************************</li>
@@ -76,8 +79,9 @@
 										</li>
 									</ul>
 									<div class="input_region">
-										<span class="prefix">$</span><span class="prefix_val">ct</span>&nbsp;<span class="val_input"><input type="text"
-											id='input_cmd' placeholder="输入命令..."></span>
+										<span class="prefix">$</span><span class="prefix_val">ct</span>&nbsp;<span
+											class="val_input"><input type="text" id='input_cmd'
+											placeholder="输入命令..."></span>
 									</div>
 								</li>
 							</ul>
@@ -148,13 +152,13 @@
 							</div>
 							<div class="pr-tree">
 								<ul class="pr-template" style="display: none;">
-													<li class="pr-method"><div class="method-main">
-															<img class="method-command" src="img/stoped.svg">
-															<ul class="method-title">
-																<li class="method-code" title="即时通讯网关">cj.studio.imc.be.im</li>
-															</ul>
-														</div> <span class="popup-arrow" arrow="method">&gt;&nbsp;</span></li>
-												</ul>
+									<li class="pr-method"><div class="method-main">
+											<img class="method-command" src="img/stoped.svg">
+											<ul class="method-title">
+												<li class="method-code" title="即时通讯网关">cj.studio.imc.be.im</li>
+											</ul>
+										</div> <span class="popup-arrow" arrow="method">&gt;&nbsp;</span></li>
+								</ul>
 								<div class="popup-template">
 									<ul class="popup-ul folder">
 										<li class="popup-tbar popup-bar">
