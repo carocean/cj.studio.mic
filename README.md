@@ -17,4 +17,4 @@
 
 ## 用法
 
-![主页面](https://github.com/carocean/cj.studio.mic/tree/master/document/img/mic.png)
+![主页面](https://github.com/carocean/cj.studio.mic/blob/master/documents/img/mic.png)
