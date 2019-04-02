@@ -6,7 +6,6 @@
 -encoding 'UTF-8'
 -quiet 
 -windowtitle 'cj.studio.mic.ultimate 1.0.0 API'
-'/Users/caroceanjofers/studio/cj.studio.mic/cj.studio.mic.ultimate/src/cj/studio/mic/ultimate/IUserConsoleSession.java'
 '/Users/caroceanjofers/studio/cj.studio.mic/cj.studio.mic.ultimate/src/cj/studio/mic/ultimate/INodeTreeService.java'
 '/Users/caroceanjofers/studio/cj.studio.mic/cj.studio.mic.ultimate/src/cj/studio/mic/ultimate/TFolder.java'
 '/Users/caroceanjofers/studio/cj.studio.mic/cj.studio.mic.ultimate/src/cj/studio/mic/ultimate/INodeOnRemoveEvent.java'

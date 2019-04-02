@@ -15,7 +15,6 @@ import cj.studio.gateway.socket.app.IGatewayAppSiteWayWebView;
 import cj.studio.gateway.socket.pipeline.IOutputSelector;
 import cj.studio.gateway.socket.pipeline.IOutputer;
 import cj.studio.mic.program.IOnlineTable;
-import cj.studio.mic.ultimate.IUserConsoleSession;
 
 @CjService(name = "/onCDConsole.service")
 public class OnCDConsole implements IGatewayAppSiteWayWebView {
@@ -23,8 +22,6 @@ public class OnCDConsole implements IGatewayAppSiteWayWebView {
 	IOutputSelector selector;
 	@CjServiceRef(refByName = "online")
 	IOnlineTable online;
-	@CjServiceRef(refByName = "micplugin.userConsoleSession")
-	IUserConsoleSession userConsoleSession;
 	@Override
 	public void flow(Frame frame, Circuit circuit, IGatewayAppSiteResource resource) throws CircuitException {
 		String user=frame.parameter("user");
@@ -43,6 +40,5 @@ public class OnCDConsole implements IGatewayAppSiteWayWebView {
 		Circuit c=new Circuit(out, "mic/1.0 200 OK");
 		output.send(f, c);
 		output.releasePipeline();
-		userConsoleSession.saveCurrentConsoleName(user, consoleName);
 	}
 }

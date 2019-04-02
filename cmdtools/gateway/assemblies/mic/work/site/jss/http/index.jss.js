@@ -13,8 +13,7 @@
 	 		name:"test..."
 	},
  	services:{
- 		nodeTree:'micplugin.ntService',
- 		userConsoleSession:'micplugin.userConsoleSession'
+ 		nodeTree:'micplugin.ntService'
  	}
  ]>
  <![desc:{
@@ -43,16 +42,9 @@ exports.flow = function(f,c,ctx) {
 	}
 	printWelcome(doc,f);
 	printProjectTree(f,doc,nodeTree,creator);
-	printUserConsoleSession(doc,userConsoleSession,creator);
 	c.content().writeBytes(doc.toString().getBytes());
 }
-function printUserConsoleSession(doc,userConsoleSession,user){
-	var consoleName=userConsoleSession.getCurrentConsoleName(user);
-	doc.select('.input_region>.prefix_val').html(consoleName);
-	if('$'!=consoleName){
-		doc.select('.input_region>.prefix_val').attr('style','display:table-cell;');
-	}
-}
+
 function printWelcome(doc,f){
 	var connLabel=doc.select('.container > .workbench > .header > .topbar > .items>li[conn]');
 	var wsurl=String.format('ws://%s/mic',f.head('Host'));
@@ -80,7 +72,7 @@ function printProjectTree(f,doc,nodeTree,creator){
 		li.attr('code',folder.code+'');
 		li.attr('path',folder.path+'');
 		li.attr('title',folder.name+'');
-		li.select('.folder-code').html(folder.code+'['+folder.name+']');
+		li.select('.folder-code').html(folder.code+'');
 		var count=nodeTree.getNodeCountOfFolder(folder.path+folder.code);
 		li.select('.folder-count>span').html(count);
 		
@@ -100,7 +92,7 @@ function printServices(parent,li,nodeTree,creator){
 		li.attr('code',folder.code+'');
 		li.attr('path',folder.path+'');
 		li.attr('title',folder.name+'');
-		li.select('.obj-code').html(folder.code+'['+folder.name+']');
+		li.select('.obj-code').html(folder.code+'');
 		
 		printNodes(folder.getFullName(),li,nodeTree,creator);
 		

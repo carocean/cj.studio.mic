@@ -40,6 +40,18 @@ $(document).ready(function(){
 				}
 				if(frame.heads.url.indexOf('/node/response.service')>-1){
 					var responseText=frame.content.response;
+					if(typeof responseText!='undefined'&&responseText!=null&&responseText.indexOf('$prefix{')==0){
+						var prefix=responseText.substring('$prefix{'.length,responseText.length);
+						prefix=prefix.substring(0,prefix.lastIndexOf('}'));
+						var pv=$('.container > .workbench > .desktop > .column .layout-main .column-context > .main-column-lets > .portlet[console] > div > span.prefix_val');
+						if('$'==prefix){
+							pv.hide();
+						}else{
+							pv.html(prefix);
+							pv.attr('style','display:table-cell;');
+						}
+						return;
+					}
 					$('#console_result > li.cmd_pair:last-child>.cmd_result>.response').html(responseText);
 					$('html,body').scrollTop($('html,body')[0].scrollHeight);
 					return;

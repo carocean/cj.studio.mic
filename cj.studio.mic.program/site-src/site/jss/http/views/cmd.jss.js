@@ -57,7 +57,36 @@ exports.flow = function(f,c,ctx) {
 		return;
 	}
 	var channel=entry.channel;
-	sendcmd(channel,cmdline,n.miclient,user);
+	try{
+		sendcmd(channel,cmdline,n.miclient,user);
+	}catch(e){
+		var ce=CircuitException.search(e);
+		if(ce!=null && ce.getStatus()=='404'){
+			notifyUserOffline(user,path,uuid);
+			return;
+		}
+		throw e;
+	}	
+}
+function notifyUserOffline(user,path,uuid){
+	var selector=imports.head.services.selector;
+	var online=imports.head.services.online;
+	var channel=online.getUserOnPipeline(user);
+	var output=selector.select(channel);
+	var input = new MemoryInputChannel();
+	var f = new Frame(input,"notify /node/offline.service mic/1.0");
+	f.content().accept(new MemoryContentReciever());
+	var map=new HashMap();
+	map.put('uuid',uuid);
+	map.put('path',path);
+	input.begin(f);
+	var b=new Gson().toJson(map).getBytes();
+	input.done(b, 0, b.length);
+
+	var out=new MemoryOutputChannel();
+	var c=new Circuit(out, "mic/1.0 200 OK");
+	output.send(f, c);
+	output.releasePipeline();
 }
 function sendResponseToUser(user,path,uuid,text,path,uuid,cmdline){
 	if(text==null){

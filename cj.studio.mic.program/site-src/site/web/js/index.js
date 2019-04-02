@@ -148,6 +148,22 @@ $(document).ready(function(){
 		pos.find('img').attr('src',li.find('.method-command').attr('src'));
 		var inputCmd=$('#input_cmd');
 		inputCmd.focus();
+		var responseItems=$('#console_result>.cmd_pair:not(:hidden)');
+		responseItems.remove();
+		var frame={
+				heads:{
+					url:'/mic/views/cmd.service',
+					command:'exe',
+					protocol:'ws/1.0'
+				},
+				params:{
+					cjtoken:getCookie('cjtoken'),
+					uuid:li.attr('uuid'),
+					path:li.attr('path'),
+					cmdline:'prefix'
+				}
+			};
+		connector.ws.sendFrame(frame);//发送验证
 	});
 	var tabPanels=$('.portlet .settings>.tab-panels');
 	var tabs=$('.portlet .settings > .tabs');
