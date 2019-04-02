@@ -37,4 +37,6 @@ public interface INodeTreeService {
 	TNode getNodeByUUID(String uuid);
 
 	void removeNodeByUUID(String uuid);
+
+	void dropNodes();
 }

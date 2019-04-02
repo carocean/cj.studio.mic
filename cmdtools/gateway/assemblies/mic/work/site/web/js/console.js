@@ -11,10 +11,10 @@ $(document).ready(function(){
 			$('#console_result>.cmd_pair:not(:hidden)').remove();
 			return;
 		}
-		
 		var li=result.find('>li.cmd_pair').first().clone();
 		li.removeAttr('style');
 		li.find('.cmd_line .cmd_text').html(val);
+		li.find('.cmd_result >.response').empty();
 		var prefix_val=$('.input_region > span.prefix_val:not(:hidden)');
 		if(prefix_val.length!=0){
 			li.find('.cmd_line .prefix').append(prefix_val.clone());

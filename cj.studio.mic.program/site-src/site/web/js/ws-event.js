@@ -23,6 +23,16 @@ $(document).ready(function(){
 						showNode(frame);
 						return;
 					}
+					var prFolder=item.parents('.pr-folder');
+					var parent=prFolder.attr('path');
+					var code=prFolder.attr('code');
+					var fullPath=parent+code;
+					$.get('./views/getNodeCount.service',{path:fullPath},function(data){
+						var countE=prFolder.find('.folder-main>.folder-title>.folder-count>span');
+						countE.html(data);
+					}).error(function(e){
+						alert(e.responseText);
+					});
 					item.find('.method-command').attr('src','img/running.svg');
 					$('.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet[position]>img').attr('src','img/running.svg');
 					var lets=$('.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets');
@@ -32,6 +42,16 @@ $(document).ready(function(){
 				}
 				if(cnt!=null&&frame.heads.url.indexOf('/node/offline.service')>-1){
 					var item=$('.container > .workbench > .desktop > .column .column-left > .proj-region > .pr-tree > .pr-folders > .pr-folder > .pr-objs > .pr-obj > .pr-methods > .pr-method['+'uuid=\"'+frame.content.uuid+'\"][path=\"'+frame.content.path+'\"]');
+					var prFolder=item.parents('.pr-folder');
+					var parent=prFolder.attr('path');
+					var code=prFolder.attr('code');
+					var fullPath=parent+code;
+					$.get('./views/getNodeCount.service',{path:fullPath},function(data){
+						var countE=prFolder.find('.folder-main>.folder-title>.folder-count>span');
+						countE.html(data);
+					}).error(function(e){
+						alert(e.responseText);
+					});
 					item.find('.method-command').attr('src','img/stoped.svg');
 					var lets=$('.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets');
 					var str='>.portlet[position][uuid=\"'+frame.content.uuid+'\"][path=\"'+frame.content.path+'\"]>img';
@@ -134,5 +154,16 @@ $(document).ready(function(){
 		temp.find('.method-command').attr('src','img/running.svg');
 		var postion=$('.container > .workbench > .desktop > .column .column-left > .proj-region > .pr-tree > .pr-folders > .pr-folder > .pr-objs > .pr-obj[code=\"'+folder+'\"][path=\"'+parentPath+'\"] .pr-methods');
 		postion.html(temp.html());
+		
+		var prFolder=postion.parents('.pr-folder');
+		var parent=prFolder.attr('path');
+		var code=prFolder.attr('code');
+		var fullPath=parent+code;
+		$.get('./views/getNodeCount.service',{path:fullPath},function(data){
+			var countE=prFolder.find('.folder-main>.folder-title>.folder-count>span');
+			countE.html(data);
+		}).error(function(e){
+			alert(e.responseText);
+		});
 	}
 });

@@ -182,7 +182,10 @@ public class NodeTreeService implements INodeTreeService {
 	public void removeNodeByUUID(String uuid) {
 		mic.deleteDocOne("nodes", String.format("{'tuple.uuid':'%s'}", uuid));
 	}
-
+	@Override
+	public void dropNodes() {
+		mic.dropTuple("nodes");
+	}
 	@Override
 	public List<TNode> listNodes(String path) {
 		if (!path.endsWith("/")) {
