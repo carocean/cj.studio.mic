@@ -115,7 +115,7 @@ function printNodes(path,li,nodeTree,creator){
 		}else{
 			li.select('.method-command').attr('src','img/stoped.svg');
 		}
-		li.select('.method-code').html(m.title+'');
+		li.select('.method-code').html(m.title+'['+m.desc+']');
 		methodUL.appendChild(li);
 	}
 }

@@ -153,7 +153,7 @@ $(document).ready(function(){
 		temp.find('.method-code').html(frame.content.title);
 		temp.find('.method-command').attr('src','img/running.svg');
 		var postion=$('.container > .workbench > .desktop > .column .column-left > .proj-region > .pr-tree > .pr-folders > .pr-folder > .pr-objs > .pr-obj[code=\"'+folder+'\"][path=\"'+parentPath+'\"] .pr-methods');
-		postion.html(temp.html());
+		postion.append(temp.html());
 		
 		var prFolder=postion.parents('.pr-folder');
 		var parent=prFolder.attr('path');
