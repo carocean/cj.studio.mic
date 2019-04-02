@@ -4337,3 +4337,532 @@
 2019年04月02日 08:33:39  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
 2019年04月02日 08:33:39  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
 2019年04月02日 08:33:42  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:14  信息 : -------------网关启动完毕-------------------
+2019年04月02日 21:35:15  信息 : 已装载共享库/Users/caroceanjofers/studio/cj.studio.mic/cmdtools/gateway/lib/share
+2019年04月02日 21:35:17  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/backend/4126B42B-7173-4D15-811B-488C2D624657[cj.studio.nettest.jobserver]
+2019年04月02日 21:35:17  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/frontend/CE505ABD-5AF5-4473-BCF8-FDE1F1257AD5[cj.studio.nettest.fe]
+2019年04月02日 21:35:20  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:22  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:24  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/backend/6DECBE74-B73A-47FD-9FA2-C1E751152041[用户中心网关]
+2019年04月02日 21:35:25  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:27  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:27  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/backend/D9E70885-1B2C-4210-A686-0F7A0C469E2D[cj.studio.nettest.be]
+2019年04月02日 21:35:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:30  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:32  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:32  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:34  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:35  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:37  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:37  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:39  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:40  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:42  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:42  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:44  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:45  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:47  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:47  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:49  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:50  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:52  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:52  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:54  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:57  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:57  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:57  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:57  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:35:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:02  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:02  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:07  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:07  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:07  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:08  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:08  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:12  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:12  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:13  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:13  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:17  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:17  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:18  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:18  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:19  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:19  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:22  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:22  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:23  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:23  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:24  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:24  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:26  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:26  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:27  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:27  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:28  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:28  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:31  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:31  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:32  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:32  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:36  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:36  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:43  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:43  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:44  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:44  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:45  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:45  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:45  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:45  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:48  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:48  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:49  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:49  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:50  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:50  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:50  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:50  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:53  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:53  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:54  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:54  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:55  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:55  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:55  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:55  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:58  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:58  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:36:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:00  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:00  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:00  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:00  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:03  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:03  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:05  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:05  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:05  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:05  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:08  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:08  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:10  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:10  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:10  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:10  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:13  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:13  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:15  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:15  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:15  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:15  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:18  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:18  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:19  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:19  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:20  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:20  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:20  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:20  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:23  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:23  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:24  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:24  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:25  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:25  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:25  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:25  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:28  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:28  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:30  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:30  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:30  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:30  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:33  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:33  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:34  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:34  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:35  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:35  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:35  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:35  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:38  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:38  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:39  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:39  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:40  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:40  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:40  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:40  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:43  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:43  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:44  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:44  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:45  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:45  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:45  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:45  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:48  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:48  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:50  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:50  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:54  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:54  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:56  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:56  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:57  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:57  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:37:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:01  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:01  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:02  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:02  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:06  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:06  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:07  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:07  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:11  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:11  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:12  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:12  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:17  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:17  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:17  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:17  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:19  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:19  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:19  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:19  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:22  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:22  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:22  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:22  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:24  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:24  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:24  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:24  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:27  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:27  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:27  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:27  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:32  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:32  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:32  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:32  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:34  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:34  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:34  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:34  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:37  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:37  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:37  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:37  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:39  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:39  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:39  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:39  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:42  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:42  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:42  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:42  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:44  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:44  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:44  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:44  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:47  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:47  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:47  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:47  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:49  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:49  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:49  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:49  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:52  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:52  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:52  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:52  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:54  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:54  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:54  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:54  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:57  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:57  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:57  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:57  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:38:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:02  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:02  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:02  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:02  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:07  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:07  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:07  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:07  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:12  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:12  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:12  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:12  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:18  信息 : -------------网关启动完毕-------------------
+2019年04月02日 21:39:23  信息 : 已装载共享库/Users/caroceanjofers/studio/cj.studio.mic/cmdtools/gateway/lib/share
+2019年04月02日 21:39:24  错误: cj.studio.gateway.server.handler.HttpChannelHandler -  异常：<eval>:32 TypeError: null has no such function "attribute"
+		at jdk.nashorn.internal.runtime.ECMAErrors.error(ECMAErrors.java:57)
+		at jdk.nashorn.internal.runtime.ECMAErrors.typeError(ECMAErrors.java:213)
+		at jdk.nashorn.internal.runtime.ECMAErrors.typeError(ECMAErrors.java:185)
+		at jdk.nashorn.internal.runtime.ECMAErrors.typeError(ECMAErrors.java:172)
+		at jdk.nashorn.internal.runtime.linker.NashornBottomLinker.linkNull(NashornBottomLinker.java:180)
+		at jdk.nashorn.internal.runtime.linker.NashornBottomLinker.getGuardedInvocation(NashornBottomLinker.java:66)
+		at jdk.internal.dynalink.support.CompositeGuardingDynamicLinker.getGuardedInvocation(CompositeGuardingDynamicLinker.java:124)
+		at jdk.internal.dynalink.support.LinkerServicesImpl.getGuardedInvocation(LinkerServicesImpl.java:154)
+		at jdk.internal.dynalink.DynamicLinker.relink(DynamicLinker.java:253)
+		at jdk.nashorn.internal.scripts.Script$Recompilation$43$720AAA$\^eval\_.L:22#flow(<eval>:32)
+		at cj.studio.gateway.socket.app.IGatewayAppSiteWayWebView$$NashornJavaAdapter.flow(null:-1)
+		at cj.studio.gateway.socket.app.valve.LastWayInputValve.renderJssDocument(LastWayInputValve.java:147)
+		at cj.studio.gateway.socket.app.valve.LastWayInputValve.flow(LastWayInputValve.java:95)
+		at cj.studio.gateway.socket.pipeline.InputPipeline.nextFlow(InputPipeline.java:114)
+		at cj.studio.mic.program.valve.OnlineEventValve.flow(OnlineEventValve.java:43)
+		at cj.studio.gateway.socket.pipeline.InputPipeline.nextFlow(InputPipeline.java:114)
+		at cj.studio.mic.program.valve.SecurityValve.flow(SecurityValve.java:41)
+		at cj.studio.gateway.socket.pipeline.InputPipeline.nextFlow(InputPipeline.java:114)
+		at cj.studio.mic.program.valve.DecodeValve.flow(DecodeValve.java:30)
+		at cj.studio.gateway.socket.pipeline.InputPipeline.nextFlow(InputPipeline.java:114)
+		at cj.studio.gateway.socket.app.valve.CheckSessionInputValve.flow(CheckSessionInputValve.java:47)
+		at cj.studio.gateway.socket.pipeline.InputPipeline.nextFlow(InputPipeline.java:114)
+		at cj.studio.gateway.socket.app.valve.CheckErrorInputVavle.flow(CheckErrorInputVavle.java:39)
+		at cj.studio.gateway.socket.pipeline.InputPipeline.nextFlow(InputPipeline.java:114)
+		at cj.studio.gateway.socket.app.valve.CheckUrlInputValve.flow(CheckUrlInputValve.java:44)
+		at cj.studio.gateway.socket.pipeline.InputPipeline.nextFlow(InputPipeline.java:114)
+		at cj.studio.gateway.socket.app.valve.FirstWayInputValve.flow(FirstWayInputValve.java:23)
+		at cj.studio.gateway.socket.pipeline.InputPipeline.nextFlow(InputPipeline.java:108)
+		at cj.studio.gateway.socket.pipeline.InputPipeline.headFlow(InputPipeline.java:76)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.flowHttpPipeline(HttpChannelHandler.java:487)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.pipelineHttpBuild(HttpChannelHandler.java:530)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.flowHttpRequest(HttpChannelHandler.java:476)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.handleHttpRequest(HttpChannelHandler.java:218)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.messageReceived(HttpChannelHandler.java:114)
+		at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:103)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+		at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103)
+		at io.netty.handler.codec.MessageToMessageCodec.channelRead(MessageToMessageCodec.java:111)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+		at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:154)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:138)
+		at io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:320)
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:127)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)
+		at java.lang.Thread.run(Thread.java:748)
+2019年04月02日 21:39:24  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/backend/6DECBE74-B73A-47FD-9FA2-C1E751152041[用户中心网关]
+2019年04月02日 21:39:27  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/backend/D9E70885-1B2C-4210-A686-0F7A0C469E2D[cj.studio.nettest.be]
+2019年04月02日 21:39:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:30  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/backend/4126B42B-7173-4D15-811B-488C2D624657[cj.studio.nettest.jobserver]
+2019年04月02日 21:39:32  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/frontend/CE505ABD-5AF5-4473-BCF8-FDE1F1257AD5[cj.studio.nettest.fe]
+2019年04月02日 21:39:32  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:36  信息 : -------------网关启动完毕-------------------
+2019年04月02日 21:39:39  信息 : 已装载共享库/Users/caroceanjofers/studio/cj.studio.mic/cmdtools/gateway/lib/share
+2019年04月02日 21:39:40  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/backend/6DECBE74-B73A-47FD-9FA2-C1E751152041[用户中心网关]
+2019年04月02日 21:39:42  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/backend/D9E70885-1B2C-4210-A686-0F7A0C469E2D[cj.studio.nettest.be]
+2019年04月02日 21:39:44  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:45  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/backend/4126B42B-7173-4D15-811B-488C2D624657[cj.studio.nettest.jobserver]
+2019年04月02日 21:39:47  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/frontend/CE505ABD-5AF5-4473-BCF8-FDE1F1257AD5[cj.studio.nettest.fe]
+2019年04月02日 21:39:47  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:49  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:50  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:52  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:52  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:54  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:57  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:58  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:58  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:39:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:02  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:03  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:03  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:07  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:08  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:08  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:12  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:13  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:13  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:17  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:18  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:18  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:19  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:19  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:19  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:22  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:23  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:23  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:24  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:24  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:24  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:28  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:28  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:28  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:33  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:33  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:33  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:34  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:34  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:34  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:38  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:38  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:38  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:39  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:39  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:39  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:43  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:43  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:43  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:44  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:44  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:44  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:48  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:48  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:48  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:49  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:49  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:49  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:53  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:53  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:53  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:54  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:54  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:54  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:58  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:58  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:58  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:40:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:03  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:03  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:03  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:08  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:08  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:08  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:09  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:13  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:13  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:13  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:14  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:18  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:18  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:18  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:19  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:19  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:19  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:23  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:23  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:23  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:24  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:24  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:24  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:28  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:28  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:28  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:29  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:33  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:33  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:33  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:34  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:34  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:34  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:38  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:40  信息 : -------------网关启动完毕-------------------
+2019年04月02日 21:41:43  信息 : 已装载共享库/Users/caroceanjofers/studio/cj.studio.mic/cmdtools/gateway/lib/share
+2019年04月02日 21:41:43  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/backend/D9E70885-1B2C-4210-A686-0F7A0C469E2D[cj.studio.nettest.be]
+2019年04月02日 21:41:45  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/backend/4126B42B-7173-4D15-811B-488C2D624657[cj.studio.nettest.jobserver]
+2019年04月02日 21:41:47  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/frontend/CE505ABD-5AF5-4473-BCF8-FDE1F1257AD5[cj.studio.nettest.fe]
+2019年04月02日 21:41:48  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:50  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:52  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:53  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:54  信息: cj.studio.mic.program.view.Node - 新增节点：/infrastructurePlatform/backend/6DECBE74-B73A-47FD-9FA2-C1E751152041[用户中心网关]
+2019年04月02日 21:41:55  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:57  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:58  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:41:59  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:42:00  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:42:02  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:42:03  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:42:04  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
+2019年04月02日 21:42:05  调试: cj.studio.gateway.server.handler.TcpChannelHandler - 收到心跳包.
