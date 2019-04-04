@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 import cj.studio.backend.uc.bo.Role;
+import cj.studio.backend.uc.stub.ITenantStub;
 import cj.studio.backend.uc.stub.ITokenStub;
+import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.Scope;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.annotation.CjServiceRef;
@@ -16,13 +18,19 @@ import cj.studio.ecm.net.http.HttpFrame;
 import cj.studio.ecm.net.session.ISession;
 import cj.studio.gateway.socket.pipeline.IAnnotationInputValve;
 import cj.studio.gateway.socket.pipeline.IIPipeline;
+import cj.studio.gateway.socket.pipeline.IOutputSelector;
+import cj.studio.gateway.socket.pipeline.IOutputer;
+import cj.studio.gateway.stub.IRemote;
 import cj.studio.gateway.stub.IRest;
 import cj.ultimate.util.StringUtil;
 
 @CjService(name = "securityValve", scope = Scope.multiton)
 public class SecurityValve implements IAnnotationInputValve {
-	@CjServiceRef(refByName="$.rest")
+	@CjServiceRef(refByName = "$.rest")
 	IRest rest;
+	@CjServiceRef(refByName = "$.output.selector")
+	IOutputSelector selector;
+
 	@Override
 	public void onActive(String inputName, IIPipeline pipeline) throws CircuitException {
 		pipeline.nextOnActive(inputName, this);
@@ -63,19 +71,31 @@ public class SecurityValve implements IAnnotationInputValve {
 			pipeline.nextFlow(request, response, this);
 			return;
 		}
-		Frame frame=(Frame)request;
-		Circuit circuit=(Circuit)response;
+		Frame frame = (Frame) request;
+		Circuit circuit = (Circuit) response;
 		if (frame.relativePath().startsWith("/public")) {
 			pipeline.nextFlow(request, response, this);
 			return;
 		}
-		String cjtoken=frame.parameter("cjtoken");
-		if(StringUtil.isEmpty(cjtoken)) {
+		String cjtoken = frame.parameter("cjtoken");
+		if (StringUtil.isEmpty(cjtoken)) {
 			throw new CircuitException("801", "缺少令牌，访问被拒绝");
 		}
-		ITokenStub tokenStub=rest.forRemote("rest://backend/uc/").open(ITokenStub.class);
-		Map<String, Object> map=tokenStub.parse(cjtoken);
-		circuit.attribute("uc.principals",map.get("sub"));
+		IRemote remote = rest.forRemote("rest://backend/uc/");
+		ITokenStub tokenStub = remote.open(ITokenStub.class);
+		Map<String, Object> map = tokenStub.parse(cjtoken);
+		String user = (String) map.get("user");
+		String tenant = (String) map.get("sub");
+		ITenantStub tenantStub = remote.open(ITenantStub.class);
+		if (tenantStub.getTenant(tenant) == null) {
+			CJSystem.logging().error(getClass(),
+					String.format("租户：%s 不存在。网关：%s%s[%s@%s]", tenant, frame.parameter("location"),
+							frame.parameter("title"), frame.parameter("desc"), frame.parameter("uuid")));
+			IOutputer out = selector.select(frame);
+			out.closePipeline();
+			return;
+		}
+		circuit.attribute("uc.principals", user);
 		pipeline.nextFlow(request, response, this);
 	}
 
