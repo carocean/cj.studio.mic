@@ -72,6 +72,9 @@ function notifyUserOffline(user,path,uuid){
 	var selector=imports.head.services.selector;
 	var online=imports.head.services.online;
 	var channel=online.getUserOnPipeline(user);
+    if(channel==null){
+        return;
+    }
 	var output=selector.select(channel);
 	var input = new MemoryInputChannel();
 	var f = new Frame(input,"notify /node/offline.service mic/1.0");
