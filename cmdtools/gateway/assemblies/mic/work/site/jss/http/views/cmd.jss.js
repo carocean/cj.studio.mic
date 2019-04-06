@@ -56,7 +56,13 @@ exports.flow = function(f,c,ctx) {
 		sendResponseToUser(user,path,uuid,'节点不在线:'+path+uuid,path,uuid,cmdline);
 		return;
 	}
+   
 	var channel=entry.channel;
+    if(channel==null){
+        print(user+'.........' +channel );
+        sendResponseToUser(user,path,uuid,'通道不存在:'+path+uuid,path,uuid,cmdline);
+        return;
+    }
 	try{
 		sendcmd(channel,cmdline,n.miclient,user);
 	}catch(e){

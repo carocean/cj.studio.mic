@@ -57,6 +57,11 @@ exports.flow = function(f,c,ctx) {
 		return;
 	}
 	var channel=entry.channel;
+	if(channel==null){
+		print('用户所在的远程通道已不存在，节点:'+path+n.title);
+        sendResponseToUser(user,path,uuid,'用户所在的远程通道已不存在，节点:'+path+uuid,path,uuid,cmdline);
+        return;
+    }
 	try{
 		sendcmd(channel,cmdline,n.miclient,user);
 	}catch(e){
