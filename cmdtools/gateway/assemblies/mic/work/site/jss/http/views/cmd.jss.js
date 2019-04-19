@@ -56,11 +56,10 @@ exports.flow = function(f,c,ctx) {
 		sendResponseToUser(user,path,uuid,'节点不在线:'+path+uuid,path,uuid,cmdline);
 		return;
 	}
-   
 	var channel=entry.channel;
-    if(channel==null){
-        print(user+'.........' +channel );
-        sendResponseToUser(user,path,uuid,'通道不存在:'+path+uuid,path,uuid,cmdline);
+	if(channel==null){
+		print('用户所在的远程通道已不存在，节点:'+path+n.title);
+        sendResponseToUser(user,path,uuid,'用户所在的远程通道已不存在，节点:'+path+uuid,path,uuid,cmdline);
         return;
     }
 	try{
