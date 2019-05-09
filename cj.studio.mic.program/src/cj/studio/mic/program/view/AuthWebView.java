@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import cj.studio.backend.uc.bo.Role;
+import cj.studio.backend.uc.bo.GlobalRole;
 import cj.studio.backend.uc.stub.IAuthenticationStub;
-import cj.studio.backend.uc.stub.IRoleStub;
 import cj.studio.backend.uc.stub.ITokenStub;
+import cj.studio.backend.uc.stub.IUserStub;
 import cj.studio.ecm.annotation.CjBridge;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.net.Circuit;
@@ -28,10 +28,11 @@ import cj.ultimate.gson2.com.google.gson.reflect.TypeToken;
 public class AuthWebView implements IGatewayAppSiteWayWebView, StringTypeConverter {
 	@CjStubRef(remote = "rest://backend/uc/", stub = IAuthenticationStub.class)
 	IAuthenticationStub auth;
-	@CjStubRef(remote = "rest://backend/uc/", stub = IRoleStub.class)
-	IRoleStub role;
 	@CjStubRef(remote = "rest://backend/uc/", stub = ITokenStub.class)
 	ITokenStub token;
+	
+	@CjStubRef(remote = "rest://backend/uc/", stub = IUserStub.class)
+	IUserStub userStub;
 	@Override
 	public void flow(Frame f, Circuit c, IGatewayAppSiteResource ctx) throws CircuitException {
 		f.content().accept(new XwwwFormUrlencodedContentReciever() {
@@ -53,7 +54,7 @@ public class AuthWebView implements IGatewayAppSiteWayWebView, StringTypeConvert
 				frame.session().attribute("uc.token", cjtoken);
 				frame.session().attribute("uc.principals", user);
 
-				ArrayList<Role> roles = (ArrayList<Role>) role.getRolesOnUser(user);
+				ArrayList<GlobalRole> roles = (ArrayList<GlobalRole>) userStub.listGlobalRoleOfUser(user);
 				frame.session().attribute("uc.roles", roles);
 				CookieHelper.appendCookie(c, "cjtoken", cjtoken);
 			}

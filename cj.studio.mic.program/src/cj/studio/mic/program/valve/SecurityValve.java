@@ -3,7 +3,7 @@ package cj.studio.mic.program.valve;
 import java.util.List;
 import java.util.Map;
 
-import cj.studio.backend.uc.bo.Role;
+import cj.studio.backend.uc.bo.GlobalRole;
 import cj.studio.backend.uc.stub.ITenantStub;
 import cj.studio.backend.uc.stub.ITokenStub;
 import cj.studio.ecm.CJSystem;
@@ -51,10 +51,10 @@ public class SecurityValve implements IAnnotationInputValve {
 			}
 			String principals = (String) session.attribute("uc.principals");
 			@SuppressWarnings("unchecked")
-			List<Role> roles = (List<Role>) session.attribute("uc.roles");
+			List<GlobalRole> roles = (List<GlobalRole>) session.attribute("uc.roles");
 			boolean hasTestRole = false;
 			if (roles != null) {
-				for (Role r : roles) {
+				for (GlobalRole r : roles) {
 					if ("tests".equals(r.getCode())) {
 						hasTestRole = true;
 						break;
