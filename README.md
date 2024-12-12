@@ -17,6 +17,12 @@
 	•	Dependent on the User Center (UC).
 	•	MongoDB.
 
+## Dependent Projects:
+
+	•	ECM
+	•	Gateway
+	•	OpenPorts
+
 ## Usage
 
 Configuration for Gateway Node Registration to MIC:
