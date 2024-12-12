@@ -2,9 +2,11 @@
 # mic
 
 - Microservices Gateway Node Monitoring and Management Center
-  ```
-  MIC is the microservice monitoring center in the ECM distributed microservice architecture, similar to Eureka in the Spring distributed microservice architecture. It is used for registering, discovering, and managing OpenPorts microservice nodes within the distributed architecture.
-  ```
+  
+  >>> MIC is the microservice monitoring center in the ECM distributed microservice architecture,
+  >>> similar to Eureka in the Spring distributed microservice architecture. It is used for registering,
+  >>> discovering, and managing OpenPorts microservice nodes within the distributed architecture.
+
 
 ## Features
 
