@@ -21,20 +21,21 @@ dependencies {
 	compile fileTree('../global/runtime')
 	compile fileTree('src/cj/refembeds')
 	compile fileTree('src/cj/references')
-	compile group: 'cj.studio.gateway2', name: 'cj.studio.gateway.stub', version: ref_cj_studio_gateway_stub
-	compile group: 'cj.studio.backend.uc', name: 'cj.studio.backend.uc.stub', version: ref_cj_studio_backend_uc_stub
+
+	compile group: 'cj.netos.openport', name: 'cj.studio.openport', version: ref_cj_studio_openport
+	compile group: 'cj.netos.uc', name: 'cj.netos.uc.openport', version: ref_cj_netos_uc_openport
 	compile project (':cj.studio.mic.ultimate')
 }
 
 task copyRefembeds(type: Copy) {
     from configurations.compileClasspath.files {
-        include 'cj.studio.gateway.stub-*.jar'
+        include 'cj.studio.openport-*.jar'
     }
     into 'src/cj/references'
 }
 task copyReferences(type: Copy) {
     from configurations.compileClasspath.files {
-        include 'cj.studio.backend.uc.stub-*.jar'
+        include 'cj.netos.uc.openport-*.jar'
     }
     into 'src/cj/references'
 }

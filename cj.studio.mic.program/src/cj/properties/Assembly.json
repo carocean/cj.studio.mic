@@ -5,6 +5,13 @@
 {
 	entryPoint : {
 		plugins:[
+			{
+				name:"$openports",//名字是任意起
+				class:"cj.studio.openport.client.OpenportChipPlugin",//插件类必须
+				parameters:{//下面是接口和远程服务地址配置
+					ports:"[{'openportInterface':'cj.studio.openport.client.IRequestAdapter','remoteOpenportsUrl':'ports://usercenter.com/uc/auth.ports','token':''},{'openportInterface':'cj.netos.uc.port.IAuthPort','remoteOpenportsUrl':'ports://usercenter.com/uc/auth.ports','token':''}]"
+				}
+			}
 		],		
 		activators : [
 		]
@@ -31,6 +38,7 @@
 	serviceContainer : {
 		name : "netContainer",
 		switchFilter:"off",
+		monitor: "cj.studio.openport.client.DefaultOpenportsServicesMonitor",
 		jss:[{
 			module:"services1",
 			package:"cj.studio.mic.program.jss",

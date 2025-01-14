@@ -10,7 +10,7 @@
 			}
 		},
 		{
-			"name": "/backend/uc/",
+			"name": "ports://usercenter.com",
 			"uris": [
 				"http://localhost:9090"
 			],

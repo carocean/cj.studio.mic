@@ -83,7 +83,7 @@ subprojects {
 					}
 				}
 			 
-		        repository(url: "http://localhost:65000/nexus/content/repositories/netos"){
+		        repository(url: "$engineer_nexus"){
 					authentication(userName:"admin",password:"admin123")
 		        }
 			}
