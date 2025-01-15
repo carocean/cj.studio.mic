@@ -1,359 +1,385 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="baidu-site-verification" content="jKnWxgQdhf">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
-<meta name="renderer" content="webkit|ie-stand">
-<title>Mic.Center™</title>
-<meta name="keywords" content="cj工作室">
-<link href="css/global.css" rel="stylesheet">
-<link href="css/index.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="baidu-site-verification" content="jKnWxgQdhf">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta name="renderer" content="webkit|ie-stand">
+    <title>Mic.Center™</title>
+    <meta name="keywords" content="cj工作室">
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
 
-<script type="text/javascript" src="js/jquery/jquery-2.1.4.js"></script>
-<script type="text/javascript" src="js/socket.io.js"></script>
-<script type="text/javascript" src="js/ajaxfileupload.js"></script>
-<script type="text/javascript" src="js/date.js"></script>
-<script type="text/javascript" src="js/cookie.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/ws-event.js"></script>
-<script type="text/javascript" src="js/root-panel.js"></script>
-<script type="text/javascript" src="js/folder-panel.js"></script>
-<script type="text/javascript" src="js/child-panel.js"></script>
-<script type="text/javascript" src="js/console.js"></script>
-<script type="text/javascript" src="js/send.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="js/socket.io.js"></script>
+    <script type="text/javascript" src="js/ajaxfileupload.js"></script>
+    <script type="text/javascript" src="js/date.js"></script>
+    <script type="text/javascript" src="js/cookie.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/ws-event.js"></script>
+    <script type="text/javascript" src="js/root-panel.js"></script>
+    <script type="text/javascript" src="js/folder-panel.js"></script>
+    <script type="text/javascript" src="js/child-panel.js"></script>
+    <script type="text/javascript" src="js/console.js"></script>
+    <script type="text/javascript" src="js/send.js"></script>
 </head>
 <body>
-	<div class="container">
-		<div class="workbench">
-			<div class="header">
-				<div class="topbar">
-					<ul class="items">
-						<li conn><span>未连接</span></li>
-						<li user><label>欢迎</label><span role>角色</span>&nbsp;&nbsp;<span
-							code>carocean</span></li>
-						<li logout><span>退出</span></li>
-					</ul>
-				</div>
-				<div class="docker wrap">
-					<div class="docker-layout">
-						<div class="logo-region">
-							<div class="logo">
-								<img src="img/logo.svg"> <span class="anchor">网关监控与管理中心</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="desktop">
-				<div class="desktop-top wrap">
-					<div style="height: 10px;"></div>
-					<div class="top-select">
-						<span class="label">位置://</span><span folder class="top-name">目录</span>/<span
-							service class="top-name">服务</span>.<span method class="top-name">方法</span>
-					</div>
-				</div>
-				<div class="column wrap">
-					<div class="layout-main">
-						<div class="column-context">
-							<ul class="main-column-lets">
-								<li class="portlet" position><img alt=""
-									src="img/stoped.svg">&nbsp;&nbsp;<span path>子目录</span><span
-									title>节点</span><input type="file" id="upload_file"
-									name="upload_file" style="display: none;"
-									accept="application/x-java-archive" /></li>
-								<li class="portlet" console>
-									<ul id="console_result">
-										<li class="welcome">******************************************</li>
-										<li class="welcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎</li>
-										<li class="welcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;输入man命令查看帮助</li>
-										<li class="welcome">******************************************</li>
-										<li class="cmd_pair" style="display: none;">
-											<div class="cmd_line">
-												<span class="prefix">$</span><span class="cmd_text"></span>
-											</div>
-											<div class="cmd_result">
-												&nbsp;&nbsp;<span class="response"></span>
-											</div>
-										</li>
-									</ul>
-									<div class="input_region">
-										<span class="prefix">$</span><span class="prefix_val">ct</span>&nbsp;<span
-											class="val_input"><input type="text" id='input_cmd'
-											placeholder="输入命令..."></span>
-									</div>
-								</li>
-							</ul>
-							<div class="panel-tools on-mask"></div>
-						</div>
-					</div>
-					<div class="column-left">
-						<div class="proj-region">
-							<label>管理中心</label>
-							<div class="pr-toolbar">
-								<div class="popup-template">
-									<ul class="popup-ul root">
-										<li class="popup-tbar popup-bar">
-											<div class="popup-bar-left">
-												<span>所有文件夹</span>
-											</div>
-											<ul class="popup-bar-right-ul">
-												<li class="popup-bar-right-li" addFolder title="添加文件夹"><img
-													src="img/tianjia.svg"></li>
-											</ul>
-										</li>
-										<li class="popup-tbar-region">
-											<ul class="popup-rbar-table">
-												<li class="popup-rbar-row">
-													<div class="popup-rbar-cell code">
-														<input placeholder="文件夹代码名">
-													</div>
-													<div class="popup-rbar-cell name">
-														<input placeholder="文件夹显示名">
-													</div>
-													<div class="popup-rbar-cell save" title="保存">
-														<img alt="" src="img/save.svg">
-													</div>
-													<div class="popup-rbar-cell delete" title="删除">
-														<img alt="" src="img/delete.svg">
-													</div>
-												</li>
-												<li class="popup-rbar-row">
-													<div class="popup-rbar-cell">
-														<input placeholder="文件夹代码名">
-													</div>
-													<div class="popup-rbar-cell">
-														<input placeholder="文件夹显示名">
-													</div>
-													<div class="popup-rbar-cell" title="删除">
-														<img alt="" src="img/delete.svg">
-													</div>
-												</li>
-												<li class="popup-rbar-row">
-													<div class="popup-rbar-cell">
-														<input placeholder="文件夹代码名">
-													</div>
-													<div class="popup-rbar-cell">
-														<input placeholder="文件夹显示名">
-													</div>
-													<div class="popup-rbar-cell" title="删除">
-														<img alt="" src="img/delete.svg">
-													</div>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</div>
-								<ul>
-									<li addFolder title="添加文件夹"><img src="img/add.svg"
-										arrow="root"></li>
-								</ul>
-							</div>
-							<div class="pr-tree">
-								<ul class="pr-template" style="display: none;">
-									<li class="pr-method"><div class="method-main">
-											<img class="method-command" src="img/stoped.svg">
-											<ul class="method-title">
-												<li class="method-code" ></li>
-											</ul>
-										</div> <span class="popup-arrow" arrow="method">&gt;&nbsp;</span></li>
-								</ul>
-								<div class="popup-template">
-									<ul class="popup-ul folder">
-										<li class="popup-tbar popup-bar">
-											<div class="popup-bar-left">
-												<span>文件夹</span>
-											</div>
-											<ul class="popup-bar-right-ul">
-												<li class="popup-bar-right-li" addService title="添加子文件夹"><img
-													src="img/tianjia.svg"></li>
-											</ul>
-										</li>
-										<li class="popup-tbar-region">
-											<ul class="popup-rbar-table">
-												<li class="popup-rbar-row">
-													<div class="popup-rbar-cell code">
-														<input placeholder="文件夹名">
-													</div>
-													<div class="popup-rbar-cell name">
-														<input placeholder="描述">
-													</div>
-													<div class="popup-rbar-cell save" title="保存">
-														<img alt="" src="img/save.svg">
-													</div>
-													<div class="popup-rbar-cell delete" title="删除">
-														<img alt="" src="img/delete.svg">
-													</div>
-												</li>
-												<li class="popup-rbar-row">
-													<div class="popup-rbar-cell">
-														<input placeholder="文件夹名">
-													</div>
-													<div class="popup-rbar-cell">
-														<input placeholder="描述">
-													</div>
-													<div class="popup-rbar-cell save" title="保存">
-														<img alt="" src="img/save.svg">
-													</div>
-													<div class="popup-rbar-cell delete" title="删除">
-														<img alt="" src="img/delete.svg">
-													</div>
-												</li>
-												<li class="popup-rbar-row">
-													<div class="popup-rbar-cell">
-														<input placeholder="文件夹名">
-													</div>
-													<div class="popup-rbar-cell">
-														<input placeholder="描述">
-													</div>
-													<div class="popup-rbar-cell" title="删除">
-														<img alt="" src="img/delete.svg">
-													</div>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</div>
-								<ul class="pr-folders">
-									<li class="pr-folder"><div class="folder-main">
-											<img class="folder-arrow" isdown='false' src="img/arrow.svg">
-											<img class="folder-face" src="img/folder.svg">
-											<ul class="folder-title">
-												<li class="folder-code">基础架构网关</li>
-												<li class="folder-count"><span>29</span><label>个</label></li>
-											</ul>
-										</div> <span class="popup-arrow" arrow="folder"><img
-											src="img/arrow-right.svg"></span>
-										<div class="popup-template">
-											<ul class="popup-ul service">
-												<li class="popup-tbar popup-bar">
-													<div class="popup-bar-left" title="双击重命名">
-														<span>即时通讯网关</span>
-													</div>
-													<ul class="popup-bar-right-ul">
-														<li class="popup-bar-right-li" addMethod title="添加服务方法"><img
-															src="img/tianjia.svg"></li>
-													</ul>
-												</li>
-												<li class="popup-tbar-region">
-													<ul class="popup-rbar-table">
-														<li class="popup-rbar-row">
-															<div class="popup-rbar-cell code">
-																<input placeholder="方法名">
-															</div>
-															<div class="popup-rbar-cell name">
-																<input placeholder="描述">
-															</div>
-															<div class="popup-rbar-cell save" title="保存">
-																<img alt="" src="img/save.svg">
-															</div>
-															<div class="popup-rbar-cell delete" title="删除">
-																<img alt="" src="img/delete.svg">
-															</div>
-														</li>
-														<li class="popup-rbar-row">
-															<div class="popup-rbar-cell">
-																<input placeholder="方法名">
-															</div>
-															<div class="popup-rbar-cell">
-																<input placeholder="描述">
-															</div>
-															<div class="popup-rbar-cell" title="删除">
-																<img alt="" src="img/delete.svg">
-															</div>
-														</li>
-														<li class="popup-rbar-row">
-															<div class="popup-rbar-cell">
-																<input placeholder="方法名">
-															</div>
-															<div class="popup-rbar-cell">
-																<input placeholder="描述">
-															</div>
-															<div class="popup-rbar-cell" title="删除">
-																<img alt="" src="img/delete.svg">
-															</div>
-														</li>
-													</ul>
-												</li>
-											</ul>
-										</div>
-										<ul class="pr-objs">
-											<li class="pr-obj"><div class="obj-main">
-													<img class="obj-arrow" isdown='false' src="img/arrow.svg">
-													<img class="obj-face" src="img/microservice.svg">
-													<ul class="obj-title">
-														<li class="obj-code">即时通讯网关</li>
-													</ul>
-												</div>
-												<ul class="pr-methods">
-													<li class="pr-method"><div class="method-main">
-															<img class="method-command" src="img/stoped.svg">
-															<ul class="method-title">
-																<li class="method-code" title=""></li>
-															</ul>
-														</div> <span class="popup-arrow" arrow="method">&gt;&nbsp;</span></li>
-													<li class="pr-method"><div class="method-main">
-															<img class="method-command" src="img/running.svg">
-															<ul class="method-title">
-																<li class="method-code" title="在线用户或设备网关">cj.studio.imc.be.online</li>
-															</ul>
-														</div> <span class="popup-arrow" arrow="method">&gt;&nbsp;</span></li>
-												</ul> <span class="popup-arrow" arrow="obj">&gt;&nbsp;</span></li>
-											<li class="pr-obj"><div class="obj-main">
-													<img class="obj-arrow" isdown='false' src="img/arrow.svg">
-													<img class="obj-face" src="img/microservice.svg">
-													<ul class="obj-title">
-														<li class="obj-code">测试中心网关</li>
-													</ul>
-												</div>
-												<div class="popup-template">
-													<ul class="popup-ul method">
-														<li class="popup-tbar popup-bar">
-															<div class="popup-bar-left">
-																<span>方法x</span> <label></label>
-															</div>
-															<ul class="popup-bar-right-ul">
+<div class="container">
+    <div class="workbench">
+        <div class="header">
+            <div class="topbar">
+                <ul class="items">
+                    <li conn><span>未连接</span></li>
+                    <li user><label>欢迎</label><span role>角色</span>&nbsp;&nbsp;<span
+                            code>carocean</span></li>
+                    <li logout><span>退出</span></li>
+                </ul>
+            </div>
+            <div class="docker wrap">
+                <div class="docker-layout">
+                    <div class="logo-region">
+                        <div class="logo">
+                            <img src="img/logo.svg"> <span class="anchor">网关监控与管理中心</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="desktop">
+            <div class="desktop-top wrap">
+                <div style="height: 10px;"></div>
+                <div class="top-select">
+                    <span class="label">位置://</span><span folder class="top-name">目录</span>/<span
+                        service class="top-name">服务</span>.<span method class="top-name">方法</span>
+                </div>
+            </div>
+            <div class="column wrap">
+                <div class="layout-main">
+                    <div class="column-context">
+                        <ul class="main-column-lets">
+                            <li class="portlet" position><img alt=""
+                                                              src="img/stoped.svg">&nbsp;&nbsp;<span
+                                    path>子目录</span><span
+                                    title>节点</span><input type="file" id="upload_file"
+                                                            name="upload_file" style="display: none;"
+                                                            accept="application/x-java-archive"/></li>
+                            <li class="portlet" console>
+                                <div class="openports_panel">
+                                    <span>Openports:</span>
+                                    <ul id="openports_list">
+                                        <li><a href="#" target="_blank"></a></li>
+                                    </ul>
+                                </div>
+                                <ul id="console_result">
+                                    <li class="welcome">******************************************</li>
+                                    <li class="welcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎</li>
+                                    <li class="welcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;输入man命令查看帮助</li>
+                                    <li class="welcome">******************************************</li>
+                                    <li class="cmd_pair" style="display: none;">
+                                        <div class="cmd_line">
+                                            <span class="prefix">$</span><span class="cmd_text"></span>
+                                        </div>
+                                        <div class="cmd_result">
+                                            &nbsp;&nbsp;<span class="response"></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="input_region">
+                                    <span class="prefix">$</span><span class="prefix_val">ct</span>&nbsp;<span
+                                        class="val_input"><input type="text" id='input_cmd'
+                                                                 placeholder="输入命令..."></span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="panel-tools on-mask"></div>
+                    </div>
+                </div>
+                <div class="column-left">
+                    <div class="proj-region">
+                        <label>管理中心</label>
+                        <div class="pr-toolbar">
+                            <div class="popup-template">
+                                <ul class="popup-ul root">
+                                    <li class="popup-tbar popup-bar">
+                                        <div class="popup-bar-left">
+                                            <span>所有文件夹</span>
+                                        </div>
+                                        <ul class="popup-bar-right-ul">
+                                            <li class="popup-bar-right-li" addFolder title="添加文件夹"><img
+                                                    src="img/tianjia.svg"></li>
+                                        </ul>
+                                    </li>
+                                    <li class="popup-tbar-region">
+                                        <ul class="popup-rbar-table">
+                                            <li class="popup-rbar-row">
+                                                <div class="popup-rbar-cell code">
+                                                    <input placeholder="文件夹代码名">
+                                                </div>
+                                                <div class="popup-rbar-cell name">
+                                                    <input placeholder="文件夹显示名">
+                                                </div>
+                                                <div class="popup-rbar-cell save" title="保存">
+                                                    <img alt="" src="img/save.svg">
+                                                </div>
+                                                <div class="popup-rbar-cell delete" title="删除">
+                                                    <img alt="" src="img/delete.svg">
+                                                </div>
+                                            </li>
+                                            <li class="popup-rbar-row">
+                                                <div class="popup-rbar-cell">
+                                                    <input placeholder="文件夹代码名">
+                                                </div>
+                                                <div class="popup-rbar-cell">
+                                                    <input placeholder="文件夹显示名">
+                                                </div>
+                                                <div class="popup-rbar-cell" title="删除">
+                                                    <img alt="" src="img/delete.svg">
+                                                </div>
+                                            </li>
+                                            <li class="popup-rbar-row">
+                                                <div class="popup-rbar-cell">
+                                                    <input placeholder="文件夹代码名">
+                                                </div>
+                                                <div class="popup-rbar-cell">
+                                                    <input placeholder="文件夹显示名">
+                                                </div>
+                                                <div class="popup-rbar-cell" title="删除">
+                                                    <img alt="" src="img/delete.svg">
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <ul>
+                                <li addFolder title="添加文件夹"><img src="img/add.svg"
+                                                                      arrow="root"></li>
+                            </ul>
+                        </div>
+                        <div class="pr-tree">
+                            <ul class="pr-template" style="display: none;">
+                                <li class="pr-method">
+                                    <div class="method-main">
+                                        <img class="method-command" src="img/stoped.svg">
+                                        <ul class="method-title">
+                                            <li class="method-code"></li>
+                                        </ul>
+                                    </div>
+                                    <span class="popup-arrow" arrow="method">&gt;&nbsp;</span></li>
+                            </ul>
+                            <div class="popup-template">
+                                <ul class="popup-ul folder">
+                                    <li class="popup-tbar popup-bar">
+                                        <div class="popup-bar-left">
+                                            <span>文件夹</span>
+                                        </div>
+                                        <ul class="popup-bar-right-ul">
+                                            <li class="popup-bar-right-li" addService title="添加子文件夹"><img
+                                                    src="img/tianjia.svg"></li>
+                                        </ul>
+                                    </li>
+                                    <li class="popup-tbar-region">
+                                        <ul class="popup-rbar-table">
+                                            <li class="popup-rbar-row">
+                                                <div class="popup-rbar-cell code">
+                                                    <input placeholder="文件夹名">
+                                                </div>
+                                                <div class="popup-rbar-cell name">
+                                                    <input placeholder="描述">
+                                                </div>
+                                                <div class="popup-rbar-cell save" title="保存">
+                                                    <img alt="" src="img/save.svg">
+                                                </div>
+                                                <div class="popup-rbar-cell delete" title="删除">
+                                                    <img alt="" src="img/delete.svg">
+                                                </div>
+                                            </li>
+                                            <li class="popup-rbar-row">
+                                                <div class="popup-rbar-cell">
+                                                    <input placeholder="文件夹名">
+                                                </div>
+                                                <div class="popup-rbar-cell">
+                                                    <input placeholder="描述">
+                                                </div>
+                                                <div class="popup-rbar-cell save" title="保存">
+                                                    <img alt="" src="img/save.svg">
+                                                </div>
+                                                <div class="popup-rbar-cell delete" title="删除">
+                                                    <img alt="" src="img/delete.svg">
+                                                </div>
+                                            </li>
+                                            <li class="popup-rbar-row">
+                                                <div class="popup-rbar-cell">
+                                                    <input placeholder="文件夹名">
+                                                </div>
+                                                <div class="popup-rbar-cell">
+                                                    <input placeholder="描述">
+                                                </div>
+                                                <div class="popup-rbar-cell" title="删除">
+                                                    <img alt="" src="img/delete.svg">
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <ul class="pr-folders">
+                                <li class="pr-folder">
+                                    <div class="folder-main">
+                                        <img class="folder-arrow" isdown='false' src="img/arrow.svg">
+                                        <img class="folder-face" src="img/folder.svg">
+                                        <ul class="folder-title">
+                                            <li class="folder-code">基础架构网关</li>
+                                            <li class="folder-count"><span>29</span><label>个</label></li>
+                                        </ul>
+                                    </div>
+                                    <span class="popup-arrow" arrow="folder"><img
+                                            src="img/arrow-right.svg"></span>
+                                    <div class="popup-template">
+                                        <ul class="popup-ul service">
+                                            <li class="popup-tbar popup-bar">
+                                                <div class="popup-bar-left" title="双击重命名">
+                                                    <span>即时通讯网关</span>
+                                                </div>
+                                                <ul class="popup-bar-right-ul">
+                                                    <li class="popup-bar-right-li" addMethod title="添加服务方法"><img
+                                                            src="img/tianjia.svg"></li>
+                                                </ul>
+                                            </li>
+                                            <li class="popup-tbar-region">
+                                                <ul class="popup-rbar-table">
+                                                    <li class="popup-rbar-row">
+                                                        <div class="popup-rbar-cell code">
+                                                            <input placeholder="方法名">
+                                                        </div>
+                                                        <div class="popup-rbar-cell name">
+                                                            <input placeholder="描述">
+                                                        </div>
+                                                        <div class="popup-rbar-cell save" title="保存">
+                                                            <img alt="" src="img/save.svg">
+                                                        </div>
+                                                        <div class="popup-rbar-cell delete" title="删除">
+                                                            <img alt="" src="img/delete.svg">
+                                                        </div>
+                                                    </li>
+                                                    <li class="popup-rbar-row">
+                                                        <div class="popup-rbar-cell">
+                                                            <input placeholder="方法名">
+                                                        </div>
+                                                        <div class="popup-rbar-cell">
+                                                            <input placeholder="描述">
+                                                        </div>
+                                                        <div class="popup-rbar-cell" title="删除">
+                                                            <img alt="" src="img/delete.svg">
+                                                        </div>
+                                                    </li>
+                                                    <li class="popup-rbar-row">
+                                                        <div class="popup-rbar-cell">
+                                                            <input placeholder="方法名">
+                                                        </div>
+                                                        <div class="popup-rbar-cell">
+                                                            <input placeholder="描述">
+                                                        </div>
+                                                        <div class="popup-rbar-cell" title="删除">
+                                                            <img alt="" src="img/delete.svg">
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <ul class="pr-objs">
+                                        <li class="pr-obj">
+                                            <div class="obj-main">
+                                                <img class="obj-arrow" isdown='false' src="img/arrow.svg">
+                                                <img class="obj-face" src="img/microservice.svg">
+                                                <ul class="obj-title">
+                                                    <li class="obj-code">即时通讯网关</li>
+                                                </ul>
+                                            </div>
+                                            <ul class="pr-methods">
+                                                <li class="pr-method">
+                                                    <div class="method-main">
+                                                        <img class="method-command" src="img/stoped.svg">
+                                                        <ul class="method-title">
+                                                            <li class="method-code" title=""></li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="popup-arrow" arrow="method">&gt;&nbsp;</span></li>
+                                                <li class="pr-method">
+                                                    <div class="method-main">
+                                                        <img class="method-command" src="img/running.svg">
+                                                        <ul class="method-title">
+                                                            <li class="method-code" title="在线用户或设备网关">
+                                                                cj.studio.imc.be.online
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="popup-arrow" arrow="method">&gt;&nbsp;</span></li>
+                                            </ul>
+                                            <span class="popup-arrow" arrow="obj">&gt;&nbsp;</span></li>
+                                        <li class="pr-obj">
+                                            <div class="obj-main">
+                                                <img class="obj-arrow" isdown='false' src="img/arrow.svg">
+                                                <img class="obj-face" src="img/microservice.svg">
+                                                <ul class="obj-title">
+                                                    <li class="obj-code">测试中心网关</li>
+                                                </ul>
+                                            </div>
+                                            <div class="popup-template">
+                                                <ul class="popup-ul method">
+                                                    <li class="popup-tbar popup-bar">
+                                                        <div class="popup-bar-left">
+                                                            <span>方法x</span> <label></label>
+                                                        </div>
+                                                        <ul class="popup-bar-right-ul">
 
-															</ul>
-														</li>
-													</ul>
-												</div>
-												<ul class="pr-methods">
-													<li class="pr-method"><div class="method-main">
-															<img class="method-command" src="img/running.svg">
-															<ul class="method-title">
-																<li class="method-code" title="测试中心中台">cj.studio.nettest.be</li>
-															</ul>
-														</div> <span class="popup-arrow" arrow="method">&gt;&nbsp;</span></li>
-												</ul> <span class="popup-arrow" arrow="obj"><img
-													src="img/arrow-right.svg"></span></li>
-										</ul></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="mask">
-					<div class="content"></div>
-				</div>
-			</div>
-		</div>
-		<div class="footer">
-			<div class="footer-box">
-				<div class="wrap">
-					<div class="contents">
-						<p licence="">
-							<a class="crop">CJ Studio</a><span></span>
-						</p>
-						<p copyright="">
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <ul class="pr-methods">
+                                                <li class="pr-method">
+                                                    <div class="method-main">
+                                                        <img class="method-command" src="img/running.svg">
+                                                        <ul class="method-title">
+                                                            <li class="method-code" title="测试中心中台">
+                                                                cj.studio.nettest.be
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="popup-arrow" arrow="method">&gt;&nbsp;</span></li>
+                                            </ul>
+                                            <span class="popup-arrow" arrow="obj"><img
+                                                    src="img/arrow-right.svg"></span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mask">
+                <div class="content"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-box">
+            <div class="wrap">
+                <div class="contents">
+                    <p licence="">
+                        <a class="crop">CJ Studio</a><span></span>
+                    </p>
+                    <p copyright="">
 							<span label="">Copyright © 2016 Netos Cloud. All rights
 								reserved. </span>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

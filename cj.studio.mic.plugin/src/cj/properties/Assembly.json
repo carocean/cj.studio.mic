@@ -10,7 +10,7 @@
         class: "cj.studio.orm.mongodb.MongoDBPlugin",
         parameters: {
           remotes: "[
-          'localhost:27017'
+          'mongodb:27017'
         ]
           ",
           isTrustConnect: "false",

@@ -1,12 +1,12 @@
 package cj.studio.mic.program.valve;
 
-import cj.netos.uc.model.UcRole;
-import cj.netos.uc.port.IAuthPort;
-import cj.netos.uc.port.ITenantManangerSelfServicePorts;
-import cj.studio.ecm.CJSystem;
+import cj.netos.uc.port.IAppManangerSelfServicePorts;
+import cj.netos.uc.util.Encript;
+import cj.studio.ecm.IServiceSite;
 import cj.studio.ecm.Scope;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.annotation.CjServiceRef;
+import cj.studio.ecm.annotation.CjServiceSite;
 import cj.studio.ecm.net.Circuit;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
@@ -15,19 +15,14 @@ import cj.studio.ecm.net.http.HttpCircuit;
 import cj.studio.ecm.net.http.HttpFrame;
 import cj.studio.ecm.net.session.ISession;
 import cj.studio.ecm.util.ObjectHelper;
-import cj.studio.gateway.socket.pipeline.IAnnotationInputValve;
-import cj.studio.gateway.socket.pipeline.IIPipeline;
-import cj.studio.gateway.socket.pipeline.IOutputSelector;
-import cj.studio.gateway.socket.pipeline.IOutputer;
+import cj.studio.gateway.socket.pipeline.*;
 import cj.studio.openport.client.IRequestAdapter;
-import cj.studio.openport.client.Openports;
+import cj.ultimate.gson2.com.google.gson.Gson;
+import cj.ultimate.gson2.com.google.gson.reflect.TypeToken;
 import cj.ultimate.util.StringUtil;
 import io.netty.handler.codec.http.Cookie;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @CjService(name = "securityValve", scope = Scope.multiton)
 public class SecurityValve implements IAnnotationInputValve {
@@ -35,7 +30,12 @@ public class SecurityValve implements IAnnotationInputValve {
     IRequestAdapter requestAdapter;
     @CjServiceRef(refByName = "$.output.selector")
     IOutputSelector selector;
-
+    @CjServiceRef(refByName = "$openports.cj.studio.openport.client.IRequestAdapter")
+    IRequestAdapter adapter;
+    @CjServiceRef(refByName = "$openports.cj.netos.uc.port.IAppManangerSelfServicePorts")
+    IAppManangerSelfServicePorts appManangerSelfServicePorts;
+    @CjServiceSite
+    IServiceSite site;
     @Override
     public void onActive(String inputName, IIPipeline pipeline) throws CircuitException {
         pipeline.nextOnActive(inputName, this);
@@ -60,7 +60,7 @@ public class SecurityValve implements IAnnotationInputValve {
             boolean hasTestRole = false;
             if (roles != null) {
                 for (String r : roles) {
-                    if ("platform:administrators".equals(r)) {
+                    if ("platform:mic:members".equals(r)) {
                         hasTestRole = true;
                         break;
                     }
@@ -84,7 +84,7 @@ public class SecurityValve implements IAnnotationInputValve {
                 if (iterator.hasNext()) {
                     Cookie cookie = iterator.next();
                     try {
-                       c= (String) ObjectHelper.get(cookie,"value");
+                        c = (String) ObjectHelper.get(cookie, "value");
                     } catch (NoSuchFieldException e) {
                         throw new RuntimeException(e);
                     } catch (IllegalAccessException e) {
@@ -98,6 +98,7 @@ public class SecurityValve implements IAnnotationInputValve {
             pipeline.nextFlow(request, response, this);
             return;
         }
+        //下面是ws协议，用来处理来自mic客户端的命令
         Frame frame = (Frame) request;
         Circuit circuit = (Circuit) response;
         if (frame.relativePath().startsWith("/public")) {
@@ -106,24 +107,86 @@ public class SecurityValve implements IAnnotationInputValve {
         }
         String cjtoken = frame.parameter("cjtoken");
         if (StringUtil.isEmpty(cjtoken)) {
-            throw new CircuitException("801", "缺少令牌，访问被拒绝");
-        }
-        IAuthPort iucPort = Openports.open(IAuthPort.class, "ports://openport.com/openport/uc.ports", "xx");
-
-        Map<String, Object> map = iucPort.verification(null, cjtoken);
-        String user = (String) map.get("user");
-        String tenant = (String) map.get("tenant");
-        ITenantManangerSelfServicePorts tenantStub = Openports.open(ITenantManangerSelfServicePorts.class, "ports://openport.com/openport/uc.ports", cjtoken);
-        if (tenantStub.getTenant(null, tenant) == null) {
-            CJSystem.logging().error(getClass(),
-                    String.format("租户：%s 不存在。网关：%s%s[%s@%s]", tenant, frame.parameter("location"),
-                            frame.parameter("title"), frame.parameter("desc"), frame.parameter("uuid")));
             IOutputer out = selector.select(frame);
             out.closePipeline();
-            return;
+            throw new CircuitException("801", "缺少令牌，访问被拒绝");
         }
-        circuit.attribute("uc.principals", user);
-        pipeline.nextFlow(request, response, this);
+        //由于此处仅拦截ws的请求，因此只需要处理客户端网关向mic的注册即可，如果注册不成功则关闭连接，如果
+        //成功就放行，不必再验证其它ws请求，因此ws连接已授信。
+        if("register".equalsIgnoreCase(frame.command())&&frame.url().startsWith("/mic/node.service")) {
+            doMicRegisterCommand(frame, circuit, pipeline);
+        }else{
+            doOtherWsRequest(frame, circuit, pipeline);
+        }
+    }
+    private void doOtherWsRequest(Frame frame, Circuit circuit, IIPipeline pipeline) throws CircuitException {
+        String cjtoken = frame.parameter("cjtoken");
+        String appId = site.getProperty("app-id");
+        String appKey = site.getProperty("app-key");
+        String appSecret = site.getProperty("app-secret");
+        String nonce = Encript.md5(UUID.randomUUID().toString());
+        String sign = Encript.md5(String.format("%s%s%s", appKey, nonce, appSecret));
+        String retvalue = adapter.request("get", "http/1.1", new HashMap<String, String>() {
+            {
+                put("Rest-Command", "verification");
+                put("app-id", appId);
+                put("app-key", appKey);
+                put("app-nonce", nonce);
+                put("app-sign", sign);
+            }
+        }, new HashMap<String, String>() {
+            {
+                put("token", cjtoken);
+            }
+        }, null);
+
+        Map<String, Object> resp = new Gson().fromJson(retvalue, new TypeToken<HashMap<String, Object>>() {
+        }.getType());
+        if (200.0 != (double) resp.get("status")) {
+            throw new CircuitException(resp.get("status") + "", "uc响应错误：" + resp.get("message"));
+        }
+
+        String dataText = (String) resp.get("dataText");
+        Map<String, Object> entry = new Gson().fromJson(dataText, new TypeToken<HashMap<String, Object>>() {
+        }.getType());
+        String person = (String) entry.get("person");//得到统一用户
+        circuit.attribute("uc.principals", person);
+        pipeline.nextFlow(frame, circuit, this);
+
+    }
+
+    private void doMicRegisterCommand(Frame frame, Circuit circuit, IIPipeline pipeline) throws CircuitException {
+        String cjtoken = frame.parameter("cjtoken");
+        String appId = frame.parameter("appId");
+        String appKey = frame.parameter("appKey");
+        String nonce = frame.parameter("nonce");
+        String sign = frame.parameter("sign");
+        String retvalue = adapter.request("get", "http/1.1", new HashMap<String, String>() {
+            {
+                put("Rest-Command", "verification");
+                put("app-id", appId);
+                put("app-key", appKey);
+                put("app-nonce", nonce);
+                put("app-sign", sign);
+            }
+        }, new HashMap<String, String>() {
+            {
+                put("token", cjtoken);
+            }
+        }, null);
+
+        Map<String, Object> resp = new Gson().fromJson(retvalue, new TypeToken<HashMap<String, Object>>() {
+        }.getType());
+        if (200.0 != (double) resp.get("status")) {
+            throw new CircuitException(resp.get("status") + "", "uc响应错误：" + resp.get("message"));
+        }
+
+        String dataText = (String) resp.get("dataText");
+        Map<String, Object> entry = new Gson().fromJson(dataText, new TypeToken<HashMap<String, Object>>() {
+        }.getType());
+        String person = (String) entry.get("person");//得到统一用户
+        circuit.attribute("uc.principals", person);
+        pipeline.nextFlow(frame, circuit, this);
     }
 
     @Override

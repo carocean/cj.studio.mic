@@ -51,13 +51,14 @@ function printWelcome(doc,f){
 	connLabel.attr('wsurl',wsurl);
 	var roleE=doc.select('.container > .workbench > .header > .topbar > .items span[role]').first();
 	var roles=f.session().attribute('uc.roles');
+
 	var sb=new StringBuffer();
 	for(var i=0;i<roles.length;i++){
-		var r=roles.get(i);
-		sb.append(r.name);
+		var r=roles[i];
+		sb.append(r);
 		sb.append(';');
 	}
-	roleE.html(sb);
+	roleE.attr('title',sb.toString());
 	var codeE=doc.select('.container > .workbench > .header > .topbar > .items span[code]').first();
 	codeE.html(f.session().attribute('uc.principals'));
 }
@@ -75,9 +76,9 @@ function printProjectTree(f,doc,nodeTree,creator){
 		li.select('.folder-code').html(folder.code+'['+folder.name+']');
 		var count=nodeTree.getNodeCountOfFolder(folder.path+folder.code);
 		li.select('.folder-count>span').html(count);
-		
+
 		printServices(folder.getFullName(),li,nodeTree,creator);
-		
+
 		foldersE.appendChild(li);
 	}
 }
@@ -93,9 +94,9 @@ function printServices(parent,li,nodeTree,creator){
 		li.attr('path',folder.path+'');
 		li.attr('title',folder.name+'');
 		li.select('.obj-code').html(folder.code+'['+folder.name+']');
-		
+
 		printNodes(folder.getFullName(),li,nodeTree,creator);
-		
+
 		objsE.appendChild(li);
 	}
 }

@@ -1,10 +1,10 @@
 var connector={
-		isopen:false,
-		ws:{}
+	isopen:false,
+	ws:{}
 }
 $(document).ready(function(){
 	var connLabel=$('.container > .workbench > .header > .topbar > .items>li[conn]');
-	
+
 	function onmessage(frame){
 		if(frame.isFrame){
 			//console.log('...onmessage--是否侦:'+frame.isFrame+'; '+frame.heads.command+' '+frame.heads.url+' '+frame.heads.protocol);
@@ -72,6 +72,29 @@ $(document).ready(function(){
 						}
 						return;
 					}
+					if(typeof responseText!='undefined'&&responseText!=null&&responseText.indexOf('$openports{')==0){
+						var openports=responseText.substring('$openports{'.length,responseText.length);
+						openports=openports.substring(0,openports.lastIndexOf('}'));
+						var list=JSON.parse(openports);
+						var olistUl=$('#openports_list').first();
+						var oli=olistUl.find('li').first().clone();
+						olistUl.empty();
+						for(var i=0;i<list.length;i++){
+							var ports=list[i];
+							var li=oli.clone();
+							var href=li.find('a');
+							href.attr('href',ports);
+							li.prepend('-&nbsp;&nbsp;');
+							href.html(ports);
+							olistUl.append(li);
+						}
+						if (list.length == 0) {
+							var li=oli.clone();
+							var href=li.find('a');
+							href.html('-- 无 --')
+						}
+						return;
+					}
 					$('#console_result > li.cmd_pair:last-child>.cmd_result>.response').html(responseText);
 					$('html,body').scrollTop($('html,body')[0].scrollHeight);
 					return;
@@ -111,15 +134,15 @@ $(document).ready(function(){
 		connLabel.attr('state','isopen');
 		var cjtoken=getCookie('cjtoken');
 		var frame={
-				heads:{
-					url:'/mic/public/online.service',
-					command:'get',
-					protocol:'ws/1.0'
-				},
-				params:{
-					cjtoken:cjtoken
-				}
-			};
+			heads:{
+				url:'/mic/public/online.service',
+				command:'get',
+				protocol:'ws/1.0'
+			},
+			params:{
+				cjtoken:cjtoken
+			}
+		};
 		connLabel.ws.sendFrame(frame);//发送验证
 		connector.isopen=true;
 	}
@@ -137,7 +160,7 @@ $(document).ready(function(){
 	var ws=$.ws.open(wsServiceuri,onmessage, onopen, onclose,onerror);
 	connLabel.ws=ws;
 	connector.ws=ws;
-	
+
 	function showNode(frame){
 		var npath=frame.content.path;
 		while(npath.lastIndexOf('/')==npath.length-1){
@@ -154,7 +177,7 @@ $(document).ready(function(){
 		temp.find('.method-command').attr('src','img/running.svg');
 		var postion=$('.container > .workbench > .desktop > .column .column-left > .proj-region > .pr-tree > .pr-folders > .pr-folder > .pr-objs > .pr-obj[code=\"'+folder+'\"][path=\"'+parentPath+'\"] .pr-methods');
 		postion.append(temp.html());
-		
+
 		var prFolder=postion.parents('.pr-folder');
 		var parent=prFolder.attr('path');
 		var code=prFolder.attr('code');

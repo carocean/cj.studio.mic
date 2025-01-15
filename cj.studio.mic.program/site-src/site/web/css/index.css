@@ -99,7 +99,7 @@
 }
 
 .container>.workbench>.header>.docker>.docker-layout>.logo-region .anchor
-	{
+{
 	color: white;
 	font-size: 18px;
 	font-weight: bold;
@@ -109,7 +109,7 @@
 }
 
 .container>.workbench>.header>.docker>.docker-layout>.logo-region anchor:hover
-	{
+{
 	color: gray;
 	background: none;
 }
@@ -129,7 +129,7 @@
 }
 
 .container>.workbench>.header>.docker>.docker-layout>.toolbar>.launchbar
-	{
+{
 	position: absolute;
 	left: 0;
 	bottom: -1px;
@@ -144,14 +144,14 @@
 }
 
 .container>.workbench>.header>.docker>.docker-layout>.toolbar>.launchbar span
-	{
+{
 	-moz-box-shadow: 0 10px 15px #000; /* Firefox */
 	-webkit-box-shadow: 0 10px 15px #000; /* Safari 和 Chrome */
 	box-shadow: 0 10px 15px #fff;
 }
 .launchbar-hover,
 .container>.workbench>.header>.docker>.docker-layout>.toolbar>.launchbar:hover
-	{
+{
 	cursor: pointer;
 	background: #ff5500 !important;
 }
@@ -194,19 +194,19 @@
 	color: red;
 }
 .container>.workbench>.header>.docker>.docker-layout>.toolbar .shortcuts
-	{
+{
 	margin-left: 25px;
 	display: inline-block;
 }
 
 .container>.workbench>.header>.docker>.docker-layout>.toolbar .shortcuts img
-	{
+{
 	width: 100%;
 	height: 100%;
 }
 
 .container>.workbench>.header>.docker>.docker-layout>.toolbar .shortcuts .circle
-	{
+{
 	cursor: pointer;
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
@@ -221,12 +221,12 @@
 }
 
 .container>.workbench>.header>.docker>.docker-layout>.toolbar .shortcuts .circle:hover
-	{
+{
 	border-bottom: 1px solid white;
 }
 
 .container>.workbench>.header>.docker>.docker-layout>.toolbar .shortcuts>.button
-	{
+{
 	display: inline-block;
 	padding: 0 15px;
 }
@@ -247,12 +247,12 @@
 	background: rgba(236,236,236,0.8);
 	z-index: 99999999999;
 	-moz-box-shadow: -3px 4px 4px rgba(170, 170, 170, .8);
-    -webkit-box-shadow: -3px 4px 4px rgba(170, 170, 170, .8);
-    box-shadow: -3px 4px 4px rgba(170, 170, 170, .8);
-    -moz-border-radius: 15px 0 0 15px; /* Firefox */
-  -webkit-border-radius: 15px 0 0 15px; /* Safari 和 Chrome */
-  border-radius: 15px 0 0 15px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
-  min-height: 600px;
+	-webkit-box-shadow: -3px 4px 4px rgba(170, 170, 170, .8);
+	box-shadow: -3px 4px 4px rgba(170, 170, 170, .8);
+	-moz-border-radius: 15px 0 0 15px; /* Firefox */
+	-webkit-border-radius: 15px 0 0 15px; /* Safari 和 Chrome */
+	border-radius: 15px 0 0 15px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+	min-height: 600px;
 }
 
 .footer>.footer-box {
@@ -348,7 +348,7 @@
 	height: 20px;
 }
 .container>.workbench>.desktop>.column  .column-left>.proj-region>.pr-tree>.pr-folders{
-	
+
 }
 .container>.workbench>.desktop>.column  .column-left>.proj-region>.pr-tree>.pr-folders>.pr-folder{
 	padding-left:10px;
@@ -508,6 +508,38 @@
 	border-bottom: 1px solid #ececec;
 	margin: 0 10px 15px 10px;
 }
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet .openports_panel{
+	padding: 5px 0;
+}
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet .openports_panel >span{
+	display: inline-block;
+	font-weight: bold;
+}
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet .openports_panel >ul{
+	padding-left: 15px;
+	margin-top: 5px;
+	padding-bottom: 10px;
+}
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet .openports_panel >ul>li{
+	padding-left: 15px;
+	margin-top: 5px;
+	padding-bottom: 10px;
+	position: relative; /* 确保可以使用伪元素定位 */
+}
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet .openports_panel >ul>li::before{
+	content: "-"; /* 自定义符号 */
+	position: absolute;
+	left: 0; /* 将符号定位在左侧 */
+	color: #000; /* 符号颜色 */
+}
+
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet .openports_panel >ul a{
+	color: #006fa6 !important;
+	font-weight: bold;
+}
+.container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet .openports_panel >ul a:hover{
+	color: red !important;
+}
 .container>.workbench>.desktop>.column  .layout-main .column-context >.main-column-lets>.portlet[position]{
 	min-height: auto;
 }
@@ -580,7 +612,7 @@
 	padding-bottom: 10px;
 }
 .panel-tools>.popup-ul>.popup-tbar{
-	
+
 }
 .panel-tools>.popup-ul>li{
 	display: table;
@@ -696,6 +728,13 @@
 }
 .panel-tools>.popup-ul>.popup-rbar-region>.popup-rbar-table>.popup-rbar-row>.popup-rbar-cell span{
 	display: inline-block;
+}
+.portlet > .console{
+	display: inline-block;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	font-weight: bold;
+	color: black !important;
 }
 .portlet .req-url{
 	padding-bottom: 10px;
@@ -894,7 +933,7 @@
 	padding: 5px;
 	position: absolute;
 	min-width:50px;
-	min-height:20px; 
+	min-height:20px;
 	background: white;
 	right:0;
 	top:28px;

@@ -12,7 +12,7 @@
 		{
 			"name": "ports://usercenter.com",
 			"uris": [
-				"http://localhost:9090"
+				"http://netos-uc:9090"
 			],
 			"props": {
 				
